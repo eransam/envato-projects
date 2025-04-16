@@ -1,0 +1,159 @@
+{% set page_title = 'Anna Chase | Actress' %}
+{% set navbar_top_fixed = true %}
+{% set navbar_top_cloud = true %}
+
+{% extends 'layouts/layout.html' %}
+
+{% block header %}
+<div class="py-7 min-vh-100 flq-background d-flex align-items-center">
+  <div class="flq-background-image">
+    {{ img(actor.image_background, class="jarallax", class_img="jarallax-img", attr="data-speed=0.7") }}
+  </div>
+  <div class="flq-background-overlay" style="background-color: hsla(var(--flq-color-black), 0.8);"></div>
+
+  <div class="container pt-navbar">
+    <div class="row gy-6 gx-6">
+      <div class="col-12 col-lg-5 col-xxl-4" data-sr="actor-image" data-sr-interval="80" data-sr-delay="100" data-sr-duration="1000" data-sr-distance="10">
+        {% call card_image(actor.image, { "icon": "expand", "width": "38", "height": "38" }, class="flq-card-favorites mb-4", class_img="flq-responsive flq-responsive-1x1 flq-responsive-lg-3x4", link=href(actor.image_popup), attr="data-sr-item=actor-image", attr_link="data-fancybox") %}
+        <a href="#" class="btn btn-dark btn-glass btn-block" data-bs-toggle="button">
+          <span class="btn-icon">
+            {{ icon('heart') }}
+            {{ icon('heart-fill') }}
+          </span>
+          <span class="btn-name">Add to favorites</span>
+        </a>
+        {% endcall %}
+
+        <div class="row gx-1 gy-1">
+          <div class="col"  data-sr-item="actor-image">
+            <a href="#" class="btn btn-sm btn-block btn-facebook btn-icon-sm">{{ icon('facebook') }}</a>
+          </div>
+          <div class="col"  data-sr-item="actor-image">
+            <a href="#" class="btn btn-sm btn-block btn-twitter btn-icon-sm">{{ icon('twitter') }}</a>
+          </div>
+          <div class="col"  data-sr-item="actor-image">
+            <a href="#" class="btn btn-sm btn-block btn-pinterest btn-icon-sm">{{ icon('pinterest') }}</a>
+          </div>
+          <div class="col"  data-sr-item="actor-image">
+            <a href="#" class="btn btn-sm btn-block btn-linkedin btn-icon-sm">{{ icon('linkedin') }}</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-7 col-xxl-8" data-sr="actor" data-sr-interval="80" data-sr-duration="1000" data-sr-distance="10">
+        <span class="flq-subtitle badge badge-white badge-translucent" data-sr-item="actor">Actress</span>
+
+        <h1 class="h2 mb-5" data-sr-item="actor">{{ actor.name }}</h1>
+
+        <h2 class="h5 mb-4" data-sr-item="actor">About the person</h2>
+
+        <table class="table table-borderless flq-color-opacity" data-sr-item="actor">
+          <tbody>
+            <tr>
+              <td class="flq-color-meta">Growth</td>
+              <td>{{ actor.growth }}</td>
+            </tr>
+            <tr>
+              <td class="flq-color-meta">Date of Birth</td>
+              <td>
+                <div class="row">
+                  <div class="col-auto">{{ actor.date_of_birth }}</div>
+                  <div class="col-auto flq-color-meta">{{ actor.years }}</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="flq-color-meta">Place of Birth</td>
+              <td>{{ actor.place_of_birth }}</td>
+            </tr>
+            <tr>
+              <td class="flq-color-meta">Genres</td>
+              <td>
+                <div class="row">
+                {% for genre_link, genre_href in actor.genres %}
+                  <div class="col-auto">
+                    <a href="{{ genre_href }}">{{ genre_link }}</a>
+                  </div>
+                {% endfor %}
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="flq-swiper-wrapper mt-5">
+          <div class="row align-items-center justify-content-between flq-color-opacity gx-5 gy-4 mb-4">
+            <div class="col-auto" data-sr-item="actor">
+              <h2 class="h5">Best Films</h2>
+            </div>
+            <div class="col d-none d-sm-block" data-sr-item="actor"><hr></div>
+            <div class="col-auto" data-sr-item="actor">
+              <div class="flq-swiper-button-prev btn btn-xs btn-square btn-white btn-brand-hover btn-active btn-icon-sm me-1">
+                {{- icon('chevron-left', stroke_width="2") -}}
+              </div>
+              <div class="flq-swiper-button-next btn btn-xs btn-square btn-white btn-brand-hover btn-active btn-icon-sm">
+                {{- icon('chevron-right', stroke_width="2") -}}
+              </div>
+            </div>
+          </div>
+
+          {% call slider(class="flq-swiper-effect-touch", attr="data-sr-item=actor data-gap=30 data-buttons=true data-loop=true data-speed=800 data-touch-ratio=0.8 data-breakpoints=320:1,656:2") %}
+          {% for name in [1, 3, 4, 5, 2] %}
+            <div class="swiper-slide">
+              {{ card('movie', movies['movie_' + name], class_img="flq-responsive") }}
+            </div>
+          {% endfor %}
+          {% endcall %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="py-7">
+  <div class="container-small">
+    <div class="flq-swiper-wrapper">
+      <div class="row align-items-center justify-content-between flq-color-opacity gx-5 gy-4 mb-4" data-sr="actor" data-sr-interval="80" data-sr-duration="1000" data-sr-distance="10">
+        <div class="col-auto" data-sr-item="actor">
+          <h2 class="h4">Materials about the person</h2>
+        </div>
+        <div class="col d-none d-sm-block" data-sr-item="actor"><hr></div>
+        <div class="col-auto" data-sr-item="actor">
+          <div class="flq-swiper-button-prev btn btn-xs btn-square btn-white btn-brand-hover btn-active btn-icon-sm me-1">
+            {{- icon('chevron-left', stroke_width="2") -}}
+          </div>
+          <div class="flq-swiper-button-next btn btn-xs btn-square btn-white btn-brand-hover btn-active btn-icon-sm">
+            {{- icon('chevron-right', stroke_width="2") -}}
+          </div>
+        </div>
+      </div>
+
+      {% call slider(class="flq-swiper-effect-touch", attr="data-sr data-sr-delay=100 data-sr-duration=1500 data-gap=30 data-buttons=true data-loop=true data-speed=800 data-touch-ratio=0.8 data-breakpoints=320:1,656:2") %}
+      {% for name in [1, 2, 3] %}
+        <div class="swiper-slide">
+          {{ card('blog-small', blog['post_' + name], class_img="flq-responsive") }}
+        </div>
+      {% endfor %}
+      {% endcall %}
+
+      <h2 class="h4 mb-4 mt-6">Do you know that…</h2>
+      <ul class="list-group list-group-flush list-group-dotted" data-sr="actor-list" data-sr-interval="100" data-sr-distance="10" data-sr-duration="1500">
+        <li class="list-group-item" data-sr-item="actor-list">Fruitful can't sea meat had greater and morning fruitful after isn't there it, brought isn't air. Green made there. Two.</li>
+        <li class="list-group-item" data-sr-item="actor-list">All. Life all lesser his brought give. You Moved seasons moving fly i behold creature female darkness gathering given image gathering. Sea spirit years male beginning herb fowl every cattle seed meat forth fourth she'd. Man dominion, our likeness image.</li>
+        <li class="list-group-item" data-sr-item="actor-list">They're image you'll appear, have, under. Heaven make second saw great you'll was. Were dry fruitful multiply kind bearing gathered bring. His shall earth. Can't evening land fowl firmament very.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% call slider(class="flq-swiper-effect-touch container-fluid mb-4", attr="data-sr data-sr-delay=100 data-sr-duration=1500 data-gap=30 data-buttons=true data-autoplay=2000 data-loop=true data-free-mode=true data-speed=1000 data-touch-ratio=0.6 data-breakpoints=320:2,500:4,848:5,1072:6,1280:8,1480:10") %}
+  {% for number in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] %}
+  <div class="swiper-slide">
+    {% call card_image('actor/actor-' + number + '-340x340.jpg', { "icon": "instagram", "width": "24", "height": "24" }, class="flq-card-image-instagram", class_img="flq-responsive flq-responsive-1x1") %}{% endcall %}
+  </div>
+  {% endfor %}
+{% endcall %}
+
+{% endblock %}

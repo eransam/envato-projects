@@ -1,0 +1,65 @@
+{% from "macros/media.html" import media %}
+{% from "macros/img.html" import img %}
+{% from "macros/rating.html" import rating, rating_dynamic %}
+{% from "macros/slider.html" import slider_ticker, slider %}
+{% from "macros/form.html" import form_control, form_textarea, form_select, form_radio, form_checkbox %}
+{% from "macros/accordion.html" import accordion_header, accordion_body %}
+{% from "macros/card.html" import card, card_feature, card_image, card_pricing %}
+{% from "macros/widget.html" import widget %}
+{% from "macros/comment-carousel.html" import comment_carousel %}
+{% from "macros/social.html" import social %}
+{% from "macros/icon.html" import icon %}
+{% from "macros/href.html" import href %}
+{% from "macros/google-map.html" import google_map %}
+
+<!DOCTYPE html>
+{{ headerComment | safe }}
+<html lang="en">
+
+  {% include "layouts/_head.html" %}
+
+  <body id="page"{% if navbar_icons %} class="flq-navbar-icons-existence"{% endif %}>
+    {% if preloader %}
+      {% include "shared/preloader.html" %}
+    {% endif %}
+
+    {% include "shared/navbar-top.html" %}
+
+    {% block header %}{% endblock %}
+
+    <div class="content-wrap">
+    {% block content %}{% endblock %}
+
+    {% if page_sidebar %}
+      <div class="container{{ container_class if container_class }}">
+        <div class="row gy-6 gx-6">
+          <div class="col-12 col-xl{{ ' order-' + page_sidebar_order if page_sidebar_order }}">
+            {% block content_with_sidebar %}{% endblock %}
+          </div>
+          <div class="col-12 col-xl-auto{{ ' d-flex align-items-end' if page_sidebar_sticky == 'bottom' }}">
+            <div class="flq-sidebar flq-sidebar-lg{{ ' flq-sticky-' + page_sidebar_sticky if page_sidebar_sticky }}">
+              {% block sidebar %}{% endblock %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    {% block content_after %}{% endblock %}
+
+    {% if footer_show %}
+      {% include "shared/footer.html" %}
+    {% endif %}
+    </div>
+
+    {% include "shared/navbar-icons.html" %}
+
+    {% include "shared/scroll-top-button.html" %}
+
+    {% include "popups/popups.html" %}
+
+    {% include "layouts/_foot.html" %}
+
+    {% block javascript %}{% endblock %}
+  </body>
+</html>

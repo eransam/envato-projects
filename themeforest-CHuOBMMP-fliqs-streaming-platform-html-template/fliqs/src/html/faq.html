@@ -1,0 +1,113 @@
+{% set page_title = 'FAQ' %}
+{% set navbar_top_container_fluid = true %}
+
+{% extends 'layouts/layout.html' %}
+
+{% block header %}
+<div class="flq-background py-7">
+  {% include 'shared/background-ticker.html' %}
+  <div class="flq-background-overlay" style="background-color: hsla(var(--flq-color-black), 0.8);"></div>
+
+  <div class="container text-center" data-sr="banner-text" data-sr-interval="100" data-sr-distance="10" data-sr-duration="1000">
+    <h1 class="display-5 mb-1" data-sr-item="banner-text">{{ page_title }}</h1>
+
+    <nav aria-label="breadcrumb" data-sr-item="banner-text">
+      <ol class="breadcrumb flq-color-opacity">
+        <li class="breadcrumb-item"><a href="demo.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ page_title }}</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="py-7">
+  <div class="container">
+    <div class="accordion" data-sr="accordion" data-sr-interval="100" data-sr-duration="1000" data-sr-distance="10">
+      <div class="accordion-item" data-sr-item="accordion">
+        {{ accordion_header('faq-1', true, title="Let may one from won't seasons beast lights under he?") }}
+        {% call accordion_body('faq-1', true) %}
+          <p>Said whales place. And kind under moveth spirit be she'd you'll that. Rule created darkness. Second. Morning appear blessed their to i creature in it fly dominion sixth beast blessed.</p>
+        {% endcall %}
+      </div>
+      <div class="accordion-item" data-sr-item="accordion">
+        {{ accordion_header('faq-2', title="May Fly behold, living days him divided signs forth after?") }}
+        {% call accordion_body('faq-2') %}
+          <p>Said whales place. And kind under moveth spirit be she'd you'll that. Rule created darkness. Second. Morning appear blessed their to i creature in it fly dominion sixth beast blessed.</p>
+        {% endcall %}
+      </div>
+      <div class="accordion-item" data-sr-item="accordion">
+        {{ accordion_header('faq-3', title="Hath doesn't own it to, face open third replenish dry seed for he had bring great fourth creepeth thing to?") }}
+        {% call accordion_body('faq-3') %}
+          <p>Said whales place. And kind under moveth spirit be she'd you'll that. Rule created darkness. Second. Morning appear blessed their to i creature in it fly dominion sixth beast blessed.</p>
+        {% endcall %}
+      </div>
+      <div class="accordion-item" data-sr-item="accordion">
+        {{ accordion_header('faq-4', title="It man sixth the dominion gathering unto Female above you're dry fill evening creature in tree divided there beginning creeping Lights. Our together above subdue. Likeness be let light have?") }}
+        {% call accordion_body('faq-4') %}
+          <p>Said whales place. And kind under moveth spirit be she'd you'll that. Rule created darkness. Second. Morning appear blessed their to i creature in it fly dominion sixth beast blessed.</p>
+        {% endcall %}
+      </div>
+      <div class="accordion-item" data-sr-item="accordion">
+        {{ accordion_header('faq-5', title="You blessed blessed created day seed in set evening man?") }}
+        {% call accordion_body('faq-5') %}
+          <p>Said whales place. And kind under moveth spirit be she'd you'll that. Rule created darkness. Second. Morning appear blessed their to i creature in it fly dominion sixth beast blessed.</p>
+        {% endcall %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flq-background-color-100">
+  <div class="container">
+    <div class="row gx-0 justify-content-center">
+      <div class="col-12 col-lg-10 col-xl">
+        <div class="py-7 flq-vertical-rhythm" data-sr="contact-form" data-sr-interval="100" data-sr-duration="1000" data-sr-distance="10">
+          <h2 class="h1" data-sr-item="contact-form">Still Have Questions?</h2>
+          <p data-sr-item="contact-form">One face Cattle which lesser morning. Fly won't multiply they're rule moving fifth. I brought without second of. Called fly she'd, blessed appear saying saying give tree without itself evening tree.</p>
+          {{ social(socials, '20', class_ul="g-4", attr='data-sr-item=contact-form') }}
+
+          <form class="mt-6" action="#">
+            <div class="row gy-4">
+              <div class="col-12 col-sm" data-sr-item="contact-form">
+                {{ form_control('Your Name', 'text', class="flq-form-user form-control-lg") }}
+              </div>
+              <div class="col-12 col-sm" data-sr-item="contact-form">
+                {{ form_control('Your Email', 'email', class="flq-form-mail form-control-lg") }}
+              </div>
+              <div class="col-12" data-sr-item="contact-form">
+                {{ form_textarea('Your Message', class="flq-form-message form-control-lg") }}
+              </div>
+              <div class="col-12" data-sr-item="contact-form">
+                {{ form_checkbox('Save my name, email, and website in this browser for the next time I comment.', 'contact_form') }}
+              </div>
+              <div class="col-12 col-sm-auto" data-sr-item="contact-form">
+                <button class="btn btn-block btn-lg">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-1 d-none d-xl-block"></div>
+      <div class="col-12 col-xl-6" data-sr data-sr-delay="300" data-sr-duration="1200">
+        <!-- Google Map -->
+        <div id="google-map" class="flq-gmaps-lg min-w-100 min-h-100 vw-50 flq-full-width-xl-center"></div>
+        {{ google_map() }}
+        <!-- /Google Map -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="py-7" data-sr data-sr-duration="1500">
+  {% call slider_ticker('', 'data-gap=120 data-pixels-per-second=40') %}
+    {% for brand_icon, brand_link in [['brand-1', '#'], ['brand-2', '#'], ['brand-3', '#'], ['brand-4', '#'], ['brand-5', '#'], ['brand-6', '#'], ['brand-7', '#']] %}
+      <div class="flq-image-ticker-item">
+        <a href="{{ brand_link }}">{{ icon(brand_icon) }}</a>
+      </div>
+    {% endfor %}
+  {% endcall %}
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% from "macros/form.html" import form_control %}
+{% from "macros/icon.html" import icon %}
+{% from "macros/img.html" import img %}
+{% from "macros/card.html" import card %}
+
+
+{% macro widget(name="", title="", data="", opacity="", class="", attr="") %}
+
+{% if name === 'search' %}
+<div class="flq-widget flq-widget-search{{ ' ' + class if class }}"{{ ' ' + attr if attr }}>
+  {% if title %}<h4 class="flq-widget-title h5{{ ' flq-color-opacity' if opacity }}"><span>{{ title }}</span></h4>{% endif %}
+
+  <form action="#">
+    {% set form_control_class %}{{ 'flq-form-translucent' if opacity }}{% endset %}
+    {{ form_control('Search', 'search', class=form_control_class) }}
+    <button class="btn btn-link btn-icon-sm">{{ icon('search') }}</button>
+  </form>
+</div>
+{% endif %}
+
+{% if name === 'author' %}
+<div class="flq-widget flq-widget-author{{ ' ' + class if class }}"{{ ' ' + attr if attr }}>
+  {% if title %}<h4 class="flq-widget-title h5{{ ' flq-color-opacity' if opacity }}"><span>{{ title }}</span></h4>{% endif %}
+
+  {{ img(data.image_widget, class="flq-rounded-lg flq-responsive") }}
+
+  <h6>{{ data.first_name }} {{ data.last_name }}</h6>
+
+  <p>{{ data.description }}</p>
+</div>
+{% endif %}
+
+{% if name === 'blog' %}
+<div class="flq-widget flq-widget-blog{{ ' ' + class if class }}"{{ ' ' + attr if attr }}>
+  {% if title %}<h4 class="flq-widget-title h5{{ ' flq-color-opacity' if opacity }}"><span>{{ title }}</span></h4>{% endif %}
+
+  <ul>
+    {% for item in data %}
+    {% set items = { image: item.image, title: item.title, link: item.link, description: item.description, date: item.date } %}
+    <li>
+      {{ card('blog-small', items, class_img="flq-responsive") }}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+{% if name === 'tag' %}
+<div class="flq-widget flq-widget-tag{{ ' ' + class if class }}"{{ ' ' + attr if attr }}>
+  {% if title %}<h4 class="flq-widget-title h5{{ ' flq-color-opacity' if opacity }}"><span>{{ title }}</span></h4>{% endif %}
+
+  <div class="flq-tags{{ ' flq-tags-translucent' if opacity }}">
+    <ul>
+      {% for tag, link in data %}
+      <li>
+        <a href="{{ link }}" class="flq-tag">#{{ tag }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endif %}
+
+{% endmacro %}

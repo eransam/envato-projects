@@ -1,0 +1,75 @@
+{% from "macros/rating.html" import rating %}
+{% from "macros/img.html" import img %}
+{% from "macros/icon.html" import icon %}
+
+{% macro media(name="", image="", title="", meta="", link="", class="") %}
+{% if name == 'comment' %}
+<div class="flq-media{{ ' ' + class if class }}">
+  {% if link %}
+  <a href="{{ link }}" class="flq-media-image">
+    {{ img(image) }}
+  </a>
+  {% else %}
+  <div class="flq-media-image">
+    {{ img(image) }}
+  </div>
+  {% endif %}
+
+  <div class="flq-media-meta">
+    <h5 class="flq-media-title">
+      {%- if link -%}
+      <a href="{{ link }}">{{ title }}</a>
+      {%- else %}
+        {{- title -}}
+      {% endif -%}
+    </h5>
+
+    {% if meta %}
+    <div class="flq-meta">
+      <ul>
+      {% for name, link in meta %}
+        <li>
+        {%- if link -%}
+          <a href="{{ link }}">{{ name }}</a>
+        {%- else %}
+          {{- name -}}
+        {% endif -%}
+        </li>
+      {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+
+{% if name == 'movie' %}
+<div class="flq-media{{ ' ' + class if class }}">
+  <a href="{{ link }}" class="flq-media-image">
+    {{ img(image) }}
+  </a>
+
+  <div class="flq-media-meta">
+    <h5 class="flq-media-title">
+      <a href="{{ link }}">{{ title }}</a>
+    </h5>
+
+    {% if meta %}
+    <div class="flq-meta">
+      <ul>
+      {% for name, link in meta %}
+        <li>
+        {%- if link -%}
+          <a href="{{ link }}">{{ name }}</a>
+        {%- else %}
+          {{- name -}}
+        {% endif -%}
+        </li>
+      {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+{% endmacro %}

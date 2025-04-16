@@ -1,0 +1,77 @@
+{% set page_title = 'TV Shows' %}
+
+{% extends 'layouts/layout.html' %}
+
+{% block header %}
+<div class="flq-background py-7">
+  {% include 'shared/background-ticker.html' %}
+  <div class="flq-background-overlay" style="background-color: hsla(var(--flq-color-black), 0.8);"></div>
+
+  <div class="container text-center" data-sr="banner-text" data-sr-interval="100" data-sr-distance="10" data-sr-duration="1000">
+    <h1 class="display-5 mb-1" data-sr-item="banner-text">{{ page_title }}</h1>
+
+    <nav aria-label="breadcrumb" data-sr-item="banner-text">
+      <ol class="breadcrumb flq-color-opacity">
+        <li class="breadcrumb-item"><a href="demo.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ page_title }}</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="py-7">
+  <div class="container flq-isotope" data-sr="tvshow-item" data-sr-interval="80" data-sr-duration="1000" data-sr-distance="10">
+    <div class="row align-items-center gy-4 mb-5">
+      <div class="col-12 col-md">
+        <nav>
+          <ul class="nav nav-tabs flq-isotope-options" data-sr="tvshow-options" data-sr-interval="80" data-sr-duration="1000" data-sr-distance="10">
+            {% for category in ["all", "romance", "action", "horror", "adventure", "comedy", "drama", "war", "crime"] %}
+            <li class="nav-item" data-sr-item="tvshow-options">
+              <a href="#" data-filter="{{ category }}" class="nav-link{{ ' active' if category == 'all' }}"><span class="nav-link-name">{{ category | title }}</span></a>
+            </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+      <div class="col-12 col-md-auto" data-sr data-sr-delay="160" data-sr-duration="1000" data-sr-distance="10">
+        {% call form_select() %}
+          <option>By popularity</option>
+          <option>By rating</option>
+          <option>By date</option>
+          <option>By name</option>
+        {% endcall %}
+      </div>
+    </div>
+
+    <div class="row gy-5 justify-content-center flq-isotope-grid">
+    {% for name in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] %}
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 flq-isotope-item" data-filters="{{ tv_shows['show_' + name].category | lower | replace(' &', ',') }}">
+        <div data-sr-item="tvshow-item">
+          {{ card('movie-small', tv_shows['show_' + name], class_img="flq-rounded-lg flq-responsive flq-responsive-sm-3x4") }}
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+
+    <div class="text-center mt-5" data-sr-item="tvshow-item"><button class="btn btn-outline btn-white">Show More</button></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content_after %}
+  {% call slider(class="flq-swiper-effect-touch container-fluid mb-3", attr="data-sr data-sr-duration=1500 data-gap=20 data-buttons=true data-autoplay=2000 data-loop=true data-free-mode=true data-speed=1000 data-touch-ratio=0.6 data-breakpoints=320:3,500:4,848:5,1072:6,1280:8,1480:10") %}
+    {% for image in background_ticker[0] %}
+      <div class="swiper-slide">
+        {% call card_image(image, { "icon": "instagram", "width": "24", "height": "24" }, class="flq-card-image-instagram", class_img="flq-responsive flq-responsive-1x1") %}{% endcall %}
+      </div>
+    {% endfor %}
+    {% for image in background_ticker[1] %}
+      <div class="swiper-slide">
+        {% call card_image(image, { "icon": "instagram", "width": "24", "height": "24" }, class="flq-card-image-instagram", class_img="flq-responsive flq-responsive-1x1") %}{% endcall %}
+      </div>
+    {% endfor %}
+  {% endcall %}
+{% endblock %}

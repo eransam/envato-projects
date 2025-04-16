@@ -1,0 +1,59 @@
+{% macro submenu(nav) -%}
+  {% for file, item in nav %}
+    {%- if item.sub -%}
+    <li class="nav-item accordion-item flq-dropdown-nav{{ ' active' if isActiveMenuItem(file, item, filename) }}">
+      <button class="nav-link accordion-button collapsed" data-bs-target="#{{ item.name | title | replace(' ', '') }}" data-bs-toggle="collapse" aria-expanded="false">
+        <span class="nav-link-name">{{- item.name | safe -}}</span>
+        <span class="accordion-button-icon"></span>
+      </button>
+      <div class="accordion-collapse collapse" id="{{ item.name | title | replace(' ', '') }}">
+        <ul class="nav flex-column">
+          {{- submenu(item.sub) -}}
+        </ul>
+      </div>
+    </li>
+    {% else %}
+    <li class="nav-item{{ ' active' if isActiveMenuItem(file, item, filename) }}">
+      <a href="{{ file | safe }}" class="nav-link">
+        <span class="nav-link-name">{{- item.name | safe -}}</span>
+      </a>
+    </li>
+    {% endif %}
+  {%- endfor %}
+{%- endmacro %}
+
+<nav class="flq-navbar-mobile fancybox-content" id="flq_navbar_mobile">
+  <div class="flq-fancybox-head">
+    <div class="container{{ '-fluid' if not navbar_top_container }}">
+      {% if logo %}
+      <a href="index.html" class="flq-fancybox-brand me-auto">
+        {{ img(logo, class_img='flq-logo') }}
+      </a>
+      {% endif %}
+
+      {{ fancybox_close | safe }}
+    </div>
+  </div>
+
+  <div class="container pt-4 pb-6">
+    <div class="flq-fancybox-body{{ ' row gy-6 gx-6' if navbar_mobile_widgets }}">
+      {{ '<div class="col-12 col-lg">' | safe if navbar_mobile_widgets }}
+      {% if navigation %}
+        <ul class="nav flex-column flq-navbar-nav accordion gy-3">
+          {{ submenu(navigation) }}
+        </ul>
+      {% endif %}
+      {{ '</div>' | safe if navbar_mobile_widgets }}
+
+      {% if navbar_mobile_widgets %}
+      <div class="col-auto">
+        <div class="flq-sidebar flq-sidebar-lg flq-fancybox-sidebar ms-lg-6">
+          {{ widget('search', 'Search', opacity='true') }}
+          {{ widget('tag', 'Tags', [['Comedy', '#'], ['Drama', '#'], ['Trailers', '#'], ['Movie Trailers', '#'], ['Horror', '#'], ['Thriller', '#'], ['TV Shows', '#'], ['Action', '#'], ['Music', '#'], ['Rider', '#'], ['Travel', '#'], ['Car', '#']], opacity='true') }}
+          {{ widget('blog', 'Recent Posts', [blog.post_1, blog.post_2, blog.post_3], opacity='true') }}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</nav>

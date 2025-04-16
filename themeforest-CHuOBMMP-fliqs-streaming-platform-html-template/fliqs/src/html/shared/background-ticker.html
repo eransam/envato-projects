@@ -1,0 +1,13 @@
+<div class="flq-background-ticker">
+  {% call slider_ticker('mb-3', 'data-gap=20 data-pixels-per-second=20') %}
+    {% for item in background_ticker[0] %}
+      <div class="flq-image-ticker-item">{{ img(item) }}</div>
+    {% endfor %}
+  {% endcall %}
+
+  {% call slider_ticker(attr='data-gap=20 data-pixels-per-second=20 data-inverted') %}
+    {% for item in background_ticker[1] %}
+      <div class="flq-image-ticker-item">{{ img(item) }}</div>
+    {% endfor %}
+  {% endcall %}
+</div>

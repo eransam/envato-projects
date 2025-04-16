@@ -1,0 +1,54 @@
+{% set page_title = 'Account Reviews & Comments' %}
+{% set page_sidebar = true %}
+{% set page_sidebar_account = true %}
+{% set page_sidebar_order = '5' %}
+{% set container_class = ' pt-5 pb-7' %}
+
+
+{% extends 'layouts/layout.html' %}
+
+{% block content_with_sidebar %}
+<div class="row gx-0 gy-4" data-sr="account-review" data-sr-delay="300" data-sr-interval="100" data-sr-duration="1000" data-sr-distance="10">
+  <div class="col-12" data-sr-item="account-review">
+    <div class="flq-account-comment flq-vertical-rhythm">
+      {{ media('comment', blog.post_1.image_sm, blog.post_1.title, [[blog.post_1.date]], blog.post_1.link, class="mb-0") }}
+
+      <p>Of on am father by agreed supply rather either. Own handsome delicate its property mistress her end appetite.</p>
+      <hr class="my-0">
+      <p><strong>January 2, 2021 at 11:05 am</strong></p>
+    </div>
+  </div>
+
+  <div class="col-12" data-sr-item="account-review">
+    <div class="flq-account-comment flq-vertical-rhythm">
+      {{ media('comment', tv_shows.show_1.image_xs, tv_shows.show_1.title, [[tv_shows.show_1.rating], [tv_shows.show_1.year], [tv_shows.show_1.duration]], tv_shows.show_1.link, class="mb-0") }}
+
+      <p>To no indulgence diminution so discovered mr apartments. Are off under folly death wrote cause her way spite. Plan upon yet way get cold spot its week. Almost do am or limits hearts.</p>
+      <p>Resolve parties but why she shewing. She sang know now how nay cold real case.</p>
+      <p>Sportsman do offending supported extremity breakfast by listening. Decisively advantages nor expression unpleasing she led met. Estate was tended ten boy nearer seemed. As so seeing latter he should thirty whence. Steepest speaking up attended it as. Made neat an on be gave show snug tore.</p>
+      <hr class="my-0">
+      <div>
+        {{ rating() }}
+        <p class="mt-1"><strong>January 6, 2021 at 1:24 pm</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block sidebar %}
+<div class="flq-account-navbar">
+  <nav>
+    <ul class="nav nav-dots flex-column gy-3">
+      {% for file, item in navigation_user %}
+      <li class="nav-item{{ ' active' if isActiveMenuItem(file, item, filename) }}">
+        <a href="{{ file | safe }}" class="nav-link">
+          <span class="nav-link-name">{{ item.name }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</div>
+{% endblock %}

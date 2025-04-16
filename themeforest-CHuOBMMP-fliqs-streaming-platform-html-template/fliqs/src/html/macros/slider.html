@@ -1,0 +1,17 @@
+{% macro slider(class="", class_container="", attr="") %}
+<div class="swiper{{ ' ' + class if class }}"{{ ' ' + attr if attr }}>
+  <div class="swiper-container{{ ' ' + class_container if class_container }}">
+    <div class="swiper-wrapper">
+      {{ caller() }}
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
+{% macro slider_ticker(class="", attr='data-gap=120 data-pixels-per-second=20') %}
+<div class="flq-image-ticker{{ ' ' + class if class }}"{{ ' ' + attr|safe if attr }}>
+  <div class="flq-image-ticker-inner">
+    {{ caller() }}
+  </div>
+</div>
+{% endmacro %}

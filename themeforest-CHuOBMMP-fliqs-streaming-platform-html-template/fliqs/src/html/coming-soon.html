@@ -1,0 +1,80 @@
+{% set page_title = 'Coming Soon' %}
+{% set navbar_top_fixed = true %}
+{% set navbar_top_expand = false %}
+{% set footer_show = false %}
+
+{% extends 'layouts/layout.html' %}
+
+{% block content %}
+<div class="min-vh-100 flq-background flq-background-move">
+  <div class="flq-background-image">
+    {{ img('coming-soon.jpg') }}
+  </div>
+  <div class="flq-background-overlay" style="background-color: rgba(19, 23, 34, 0.5);"></div>
+
+  <div class="d-flex align-items-center justify-content-center py-7 min-vh-100">
+    <div class="container text-center pt-navbar" data-sr="coming-soon" data-sr-delay="100" data-sr-interval="100" data-sr-duration="1300" data-sr-distance="10">
+      <h1 class="display-3 mb-1" data-sr-item="coming-soon">{{ logo_name }}</h1>
+
+      <p class="lead mb-5" data-sr-item="coming-soon">Make sea thing face, over isn't which. Moving spirit won't.</p>
+
+      <div class="flq-countdown row justify-content-center gy-4 h1 mb-5" data-end="2023-11-21 12:00" data-timezone="EST">
+      {% for name in ['Days', 'Hours', 'Minutes', 'Seconds'] %}
+        <div class="col-auto">
+          <div class="flq-countdown-item" data-sr-item="coming-soon">
+            <span class="h6">{{ name }}</span>
+            <span><span class="flq-countdown-{{ name | lower }}"></span></span>
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+
+      <div class="test-countdown" data-end="2023-11-21 12:00" data-timezone="EST">
+        <div class="test-countdown-days"></div>
+        <div class="test-countdown-hours"></div>
+        <div class="test-countdown-minutes"></div>
+        <div class="test-countdown-seconds"></div>
+      </div>
+
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-6">
+          <div class="row gx-1 gy-4">
+            <div class="col-12 col-sm">
+              {{ form_control('Your Email', 'email', class='flq-form-mail form-control-lg flq-form-glass', attr="data-sr-item=coming-soon") }}
+            </div>
+            <div class="col-12 col-sm-auto">
+              <button class="btn btn-lg btn-white btn-brand-hover btn-block" data-sr-item="coming-soon">Send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{ social(
+        socials, '20', 'flq-social-glass flq-social-gap-1 gx-3 gy-3 text-center',
+        attr_link="data-sr-item=coming-soon"
+      ) }}
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+  $('.flq-countdown').each(function () {
+    const $this = $(this);
+    const tz = $this.attr('data-timezone');
+    let end = $this.attr('data-end');
+    end = moment.tz(end, tz).toDate();
+
+    $this.countdown(end, function (event) {
+      $this.find('.flq-countdown-days').html(event.strftime('%D'));
+      $this.find('.flq-countdown-hours').html(event.strftime('%H'));
+      $this.find('.flq-countdown-minutes').html(event.strftime('%M'));
+      $this.find('.flq-countdown-seconds').html(event.strftime('%S'));
+    });
+  });
+</script>
+{% endblock %}
+
+{% extends 'layouts/layout.html' %}
+

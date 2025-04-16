@@ -1,0 +1,7 @@
+{% macro href(name="") -%}
+{% if name | truncate(4) === 'http...' or name | truncate(6) === 'assets...' %}
+  {{- name -}}
+{% else %}
+  {{- 'assets/images/' + name -}}
+{% endif %}
+{%- endmacro %}

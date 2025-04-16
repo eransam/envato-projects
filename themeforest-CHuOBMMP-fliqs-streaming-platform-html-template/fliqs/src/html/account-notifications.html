@@ -1,0 +1,58 @@
+{% set page_title = 'Account Notifications' %}
+{% set page_sidebar = true %}
+{% set page_sidebar_account = true %}
+{% set page_sidebar_order = '5' %}
+{% set container_class = ' pt-5 pb-7' %}
+
+
+{% extends 'layouts/layout.html' %}
+
+{% block content_with_sidebar %}
+<div class="flq-account-content" data-sr data-sr-delay="300" data-sr-duration="1200" data-sr-distance="10">
+  <h2 class="h5 mb-2">Site notifications</h2>
+
+  <div class="row gy-1 gx-0">
+    <div class="col-12">
+      {{ form_checkbox('Show instant notifications', "notificationShowInstant") }}
+    </div>
+    <div class="col-12">
+      {{ form_checkbox('Receive notifications with sound', "notificationWithSound", attr_input="checked") }}
+    </div>
+    <div class="col-12">
+      {{ form_checkbox('Show message text', "notificationMessageText", attr_input="checked") }}
+    </div>
+  </div>
+
+  <h2 class="h5 mt-5 mb-2">SMS notifications</h2>
+
+  <div class="row gy-1 gx-0">
+    <div class="col-12">
+      <p>SMS notifications will be sent to the number <strong>1 (10*) ***-**49</strong></p>
+    </div>
+    <div class="col-12">
+      {{ form_checkbox('Receive SMS notifications', "notificationSMS") }}
+    </div>
+  </div>
+
+  <h2 class="h5 mt-5 mb-2">Email notifications</h2>
+
+  {{ form_checkbox('Email notifications', "notificationEmail", attr_input="checked") }}
+</div>
+{% endblock %}
+
+
+{% block sidebar %}
+<div class="flq-account-navbar">
+  <nav>
+    <ul class="nav nav-dots flex-column gy-3">
+      {% for file, item in navigation_user %}
+      <li class="nav-item{{ ' active' if isActiveMenuItem(file, item, filename) }}">
+        <a href="{{ file | safe }}" class="nav-link">
+          <span class="nav-link-name">{{ item.name }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</div>
+{% endblock %}

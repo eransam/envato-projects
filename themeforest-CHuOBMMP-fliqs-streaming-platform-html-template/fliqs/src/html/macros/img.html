@@ -1,0 +1,15 @@
+{% from "macros/href.html" import href %}
+
+{% macro img(name="", width="", height="", class="", class_img="", attr="", alt="") %}
+
+{% if name.slice(-4) !== '.svg' %}
+<span class="flq-image{{ ' ' + class if class }}"{{ ' ' + attr if attr }}>
+{% endif %}
+
+  <img src="{{ href(name) }}"{% if class_img %} class="{{ class_img }}"{% endif %} alt="{{ alt }}"{% if width %} width="{{ width }}"{% endif %}{% if height %} height="{{ height }}"{% endif %}>
+
+{% if name.slice(-4) !== '.svg' %}
+</span>
+{% endif %}
+
+{% endmacro %}

@@ -1,0 +1,17 @@
+<div class="offcanvas offcanvas-{{ offcanvas_orientation }}" tabindex="-1" id="flq_offcanvas">
+  <div class="offcanvas-header">
+    {% if logo %}
+    <a href="index.html" class="flq-fancybox-brand me-auto">
+      {{ img(logo, class_img='flq-logo') }}
+    </a>
+    {% endif %}
+
+    <button type="button" class="btn btn-link offcanvas-close" data-bs-dismiss="offcanvas" aria-label="Close">
+      <span></span>
+    </button>
+  </div>
+
+  <div class="offcanvas-body">
+    {% include "shared/widgets-offcanvas.html" %}
+  </div>
+</div>

@@ -1,0 +1,67 @@
+{% set page_title = 'Account Profile' %}
+{% set page_sidebar = true %}
+{% set page_sidebar_account = true %}
+{% set page_sidebar_order = '5' %}
+{% set container_class = ' pt-5 pb-7' %}
+
+
+{% extends 'layouts/layout.html' %}
+
+{% block content_with_sidebar %}
+<div class="flq-account-content">
+  <span class="flq-account-avatar mb-4">
+    {{ img(user.image, class="flq-responsive flq-responsive-1x1 flq-rounded") }}
+  </span>
+
+  <table class="table">
+    <tbody>
+      <tr>
+        <td class="flq-color-meta">First Name</td>
+        <td>{{ user.first_name }}</td>
+      </tr>
+      <tr>
+        <td class="flq-color-meta">Last Name</td>
+        <td>{{ user.last_name }}</td>
+      </tr>
+      <tr>
+        <td class="flq-color-meta">Country</td>
+        <td>{{ user.country }}</td>
+      </tr>
+      <tr>
+        <td class="flq-color-meta">City</td>
+        <td>{{ user.city }}</td>
+      </tr>
+      <tr>
+        <td class="flq-color-meta">Gender</td>
+        <td>{{ user.gender }}</td>
+      </tr>
+      <tr>
+        <td class="flq-color-meta">Date of Birth</td>
+        <td>
+          <div class="row">
+            <div class="col-auto">{{ user.date_of_birth }}</div>
+            <div class="col-auto flq-color-meta">{{ user.years }}</div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock %}
+
+
+{% block sidebar %}
+<div class="flq-account-navbar">
+  <nav>
+    <ul class="nav nav-dots flex-column gy-3">
+      {% for file, item in navigation_user %}
+      <li class="nav-item{{ ' active' if isActiveMenuItem(file, item, filename) }}">
+        <a href="{{ file | safe }}" class="nav-link">
+          <span class="nav-link-name">{{ item.name }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</div>
+{% endblock %}

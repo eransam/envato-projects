@@ -1,0 +1,75 @@
+{% set header_title = 'Contact Us' %}
+{% set navbar_top_fixed = true %}
+{% set navbar_top_cloud = true %}
+
+{% extends 'layouts/layout.html' %}
+
+{% block header %}
+<!-- Google Map -->
+<div id="google-map" class="flq-gmaps-lg"></div>
+{{ google_map() }}
+<!-- /Google Map -->
+{% endblock %}
+
+{% block content %}
+
+<div class="pt-7">
+  <div class="container">
+    <div class="row gy-4 justify-content-center" data-sr="card-feature" data-sr-interval="100" data-sr-duration="1000" data-sr-distance="10">
+      <div class="col-12 col-md-6 col-lg" data-sr-item="card-feature">
+        {{ card_feature('Visit Us', 'marker', ['26 Lawford Rd, Rugby Ave No:204', 'London - UK'], class='flq-card-feature-filled text-center') }}
+      </div>
+      <div class="col-12 col-md-6 col-lg" data-sr-item="card-feature">
+        {{ card_feature('Call Us', 'phone', ['+ 1 800 746 8 384', '# 1001'], '#', class='flq-card-feature-filled text-center') }}
+      </div>
+      <div class="col-12 col-md-6 col-lg" data-sr-item="card-feature">
+        {{ card_feature('Write Us', 'mail', ['demo@sinetake.com', 'All requires'], '#', class='flq-card-feature-filled text-center') }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="py-7">
+  <div class="container-small">
+    <div class="text-center mb-5" data-sr="contact-text" data-sr-interval="100" data-sr-duration="1000" data-sr-distance="10">
+      <span class="flq-subtitle badge" data-sr-item="contact-text">Contact Form</span>
+      <h2 class="display-6" data-sr-item="contact-text">Say Hello</h2>
+    </div>
+
+    <form action="#">
+      <div class="row gy-4" data-sr="contact-form" data-sr-interval="100" data-sr-duration="1000" data-sr-distance="10">
+        <div class="col-12 col-sm" data-sr-item="contact-form">
+          {{ form_control('Your Name', 'text', class="flq-form-user form-control-lg") }}
+        </div>
+        <div class="col-12 col-sm" data-sr-item="contact-form">
+          {{ form_control('Your Email', 'email', class="flq-form-mail form-control-lg") }}
+        </div>
+        <div class="col-12" data-sr-item="contact-form">
+          {{ form_textarea('Your Message', class="flq-form-message form-control-lg") }}
+        </div>
+        <div class="col-12" data-sr-item="contact-form">
+          {{ form_checkbox('Save my name, email, and website in this browser for the next time I comment.', 'contact_form') }}
+        </div>
+        <div class="col-12" data-sr-item="contact-form">
+          <button class="btn btn-lg btn-block">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block content_after %}
+  {% call slider(class="flq-swiper-effect-touch container-fluid mb-3", attr="data-sr data-sr-duration=1500 data-gap=20 data-buttons=true data-autoplay=2000 data-loop=true data-free-mode=true data-speed=1000 data-touch-ratio=0.6 data-breakpoints=320:3,500:4,848:5,1072:6,1280:8,1480:10") %}
+    {% for image in background_ticker[0] %}
+      <div class="swiper-slide">
+        {% call card_image(image, { "icon": "instagram", "width": "24", "height": "24" }, class="flq-card-image-instagram", class_img="flq-responsive flq-responsive-1x1") %}{% endcall %}
+      </div>
+    {% endfor %}
+    {% for image in background_ticker[1] %}
+      <div class="swiper-slide">
+        {% call card_image(image, { "icon": "instagram", "width": "24", "height": "24" }, class="flq-card-image-instagram", class_img="flq-responsive flq-responsive-1x1") %}{% endcall %}
+      </div>
+    {% endfor %}
+  {% endcall %}
+{% endblock %}

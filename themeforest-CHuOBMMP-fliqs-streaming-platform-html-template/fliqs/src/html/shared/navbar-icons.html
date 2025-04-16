@@ -1,0 +1,54 @@
+{% if navbar_icons and search or signin or logined %}
+<!-- Navbar icons -->
+<div class="flq-navbar-icons">
+  <ul>
+    <li>
+      <a href="index.html" class="btn btn-link btn-icon-md">
+        {{ icon('home', '22', '22') }}
+      </a>
+    </li>
+
+    {% if search %}
+    <li>
+      <button class="btn btn-link btn-icon-md" data-fancybox data-src="#flq_popup_search" data-base-class="flq-fancybox-search" data-animation-duration="1000" data-keyboard="false" data-auto-focus="true" data-touch="false" data-close-existing="true" data-small-btn="false" data-toolbar="false">
+        {{ icon('search', '22', '22') }}
+      </button>
+    </li>
+    {% endif %}
+
+    {% if logined %}
+    <li>
+      <button class="btn btn-link btn-icon-md" data-fancybox data-src="#flq_popup_user" data-base-class="flq-fancybox-navbar" data-animation-duration="1000" data-keyboard="false" data-auto-focus="false" data-touch="false" data-close-existing="true" data-small-btn="false" data-toolbar="false">
+        {{ icon('user', '22', '22') }}
+      </button>
+    </li>
+    {% endif %}
+
+    {% if signin %}
+    <li>
+      <button class="btn btn-link btn-icon-md" data-fancybox data-src="#flq_popup_signin" data-base-class="flq-fancybox-signin" data-animation-duration="1000" data-keyboard="false" data-auto-focus="false" data-touch="false" data-close-existing="true" data-small-btn="false" data-toolbar="false">
+        {{ icon('login', '22', '22') }}
+      </button>
+    </li>
+    {% endif %}
+
+    {% if scroll_top_button %}
+    <li class="d-flex align-items-center">
+      <div class="flq-scroll-top-wrapper">
+        <a class="flq-scroll-top-button flq-anchor" href="#page">
+          {{ icon('chevron-right', '24', '24') }}
+        </a>
+        {% if scroll_progress %}
+        <div class="flq-scroll-progress flq-scroll-progress-circle">
+          <svg>
+            <circle stroke="currentColor" r="0" fill="none" />
+          </svg>
+        </div>
+        {% endif %}
+      </div>
+    </li>
+    {% endif %}
+  </ul>
+</div>
+<!-- / Navbar icons -->
+{% endif %}

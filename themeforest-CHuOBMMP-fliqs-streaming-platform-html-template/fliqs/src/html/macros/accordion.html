@@ -1,0 +1,16 @@
+{% macro accordion_header(id="", collapse=false, title="") %}
+<h2 class="accordion-header h5">
+  <button class="accordion-button{{ ' collapsed' if not collapse }}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ id }}" aria-expanded="{{ 'false' if not collapse else 'true' }}" aria-controls="{{ id }}">
+    {{ title }}
+    <span class="accordion-button-icon"></span>
+  </button>
+</h2>
+{% endmacro %}
+
+{% macro accordion_body(id="", collapse=false) %}
+<div id="{{ id }}" class="accordion-collapse collapse{{ '  show' if collapse }}">
+  <div class="accordion-body">
+    {{ caller() }}
+  </div>
+</div>
+{% endmacro %}

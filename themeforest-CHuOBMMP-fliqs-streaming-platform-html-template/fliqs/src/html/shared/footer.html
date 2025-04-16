@@ -1,0 +1,78 @@
+<!-- Footer -->
+<footer class="flq-footer flq-background py-7" data-sr="footer" data-sr-interval="60" data-sr-duration="1000" data-sr-distance="10">
+  <div class="flq-background-image">
+    {{ img('coming-soon.jpg', class="jarallax", class_img="jarallax-img", attr="data-speed=0.7") }}
+  </div>
+  <div class="flq-background-overlay" style="background-color: hsla(var(--flq-color-background), .8);"></div>
+
+  <div class="container">
+    <div class="row gx-5 gy-5 mb-6 justify-content-center justify-content-sm-start">
+      <div class="col-md-9 col-lg-3 text-center text-sm-start" data-sr-item="footer">
+        {% if logo %}
+          <a href="index.html">
+            {{ img(logo, class_img='flq-logo') }}
+          </a>
+        {% endif %}
+        <p class="mt-1 pt-1">Saw fourth firmament heaven let that behold they're, creature let that him heaven.</p>
+      </div>
+      <div class="col-lg-1 col-xl d-none d-lg-block"></div>
+      <div class="col-12 col-md-4 col-lg col-xl-2">
+        <nav>
+          <ul class="nav flex-column gy-3">
+            <li class="nav-item" data-sr-item="footer">
+              <a href="#" class="nav-link">FAQ</a>
+            </li>
+            <li class="nav-item" data-sr-item="footer">
+              <a href="#" class="nav-link">Investor Relations</a>
+            </li>
+            <li class="nav-item" data-sr-item="footer">
+              <a href="#" class="nav-link">Privacy</a>
+            </li>
+            <li class="nav-item" data-sr-item="footer">
+              <a href="#" class="nav-link">Speed Test</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-12 col-md-4 col-lg col-xl-2">
+        <nav>
+          <ul class="nav flex-column gy-3">
+            <li class="nav-item" data-sr-item="footer">
+              <a href="#" class="nav-link">Help Center</a>
+            </li>
+            <li class="nav-item" data-sr-item="footer">
+              <a href="#" class="nav-link">Jobs</a>
+            </li>
+            <li class="nav-item" data-sr-item="footer">
+              <a href="#" class="nav-link">Cookie Preferences</a>
+            </li>
+            <li class="nav-item" data-sr-item="footer">
+              <a href="#" class="nav-link">Legal Notices</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-12 col-md-4 col-lg col-xl-2">
+        <nav>
+          <ul class="nav flex-column gy-3">
+            <li class="nav-item" data-sr-item="footer">
+              <a href="#" class="nav-link">Account</a>
+            </li>
+            <li class="nav-item" data-sr-item="footer">
+              <a href="#" class="nav-link">Ways to Watch</a>
+            </li>
+            <li class="nav-item" data-sr-item="footer">
+              <a href="#" class="nav-link">Corporate Information</a>
+            </li>
+            <li class="nav-item" data-sr-item="footer">
+              <a href="#" class="nav-link">Contact Us</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    {% include "shared/footer-copyright.html" %}
+  </div>
+</footer>
+<!-- /Footer -->

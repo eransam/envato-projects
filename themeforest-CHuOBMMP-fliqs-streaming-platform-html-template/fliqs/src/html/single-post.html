@@ -1,0 +1,218 @@
+{% set page_title = blog.post_1.title %}
+{% set page_sidebar = true %}
+{% set navbar_top_fixed = true %}
+{% set navbar_top_cloud = true %}
+{% set container_class = ' py-7' %}
+
+{% extends 'layouts/layout.html' %}
+
+{% block header %}
+<div class="flq-background pt-7 pb-6">
+  <div class="flq-background-image">
+    {{ img('blog/post-1-3840x2160.jpg', class="jarallax", class_img="jarallax-img", attr="data-speed=0.7") }}
+  </div>
+  <div class="flq-background-overlay" style="background-image: linear-gradient(0deg, hsla(var(--flq-color-black), 0.7) 0%, hsla(var(--flq-color-black), 0) 40%);"></div>
+
+  <div class="container mt-7 pt-7" data-sr="post-header" data-sr-interval="100" data-sr-duration="1000" data-sr-distance="10">
+    <div class="flq-subtitle badge badge-dark badge-glass badge-translucent flq-color-white" data-sr-item="post-header">{{ blog.post_1.category }}</div>
+    <h1 class="display-5 mb-3" data-sr-item="post-header">{{ page_title }}</h1>
+
+    <div class="flq-meta flq-color-opacity">
+      <ul class="gy-1 gx-4">
+        {% for name, link in blog.post_1.meta %}
+        <li data-sr-item="post-header">
+          <a href="{{ link }}">{{ name }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content_with_sidebar %}
+<div class="flq-post-content flq-vertical-rhythm">
+  <p>As collected deficient objection by it discovery sincerity curiosity. Quiet decay who round three world whole has mrs man. Built the china there tried jokes which gay why. Assure in adieus wicket it is. But spoke <a href="#">round point</a> and one joy. Offending her moonlight men sweetness see unwilling. Often of it tears whole oh balls share an.</p>
+
+  <p>Way ham unwilling not <strong>breakfast furniture explained</strong> perpetual. Or mr surrounded conviction so astonished literature. Songs to an blush woman be sorry young. We certain as removal attempt.</p>
+
+  <blockquote>Cottage out enabled was entered greatly prevent message. No procured unlocked an likewise. Dear but what she been over gay felt body. Six principles advantages and use entreaties</blockquote>
+
+  <p>Are own design entire former get should. Advantages boisterous day excellence boy. Out between our two waiting wishing. Pursuit he he garrets greater towards amiable so placing.</p>
+
+  <p>Frankness applauded by supported ye household. Collected favourite now for for and rapturous repulsive consulted. An seems green be wrote again. She add what own only like. Tolerably we as extremity exquisite do commanded. Doubtful offended do entrance of landlord moreover is mistress in. Nay was appear entire ladies. Sportsman do allowance is september shameless am sincerity oh recommend. Gate tell man day that who.</p>
+
+  {% call card_image('blog/post-1-inner-1840x860.jpg', { "icon": "expand", "width": "38", "height": "38" }, class_img="flq-responsive flq-responsive-sm-21x9", link='assets/images/blog/post-1-inner-3840x2160.jpg', attr_link="data-fancybox") %}{% endcall %}
+
+  <p>Frankness applauded by supported ye household. Collected favourite for for and rapturous repulsive consulted. An seems green be wrote again. She add what only like. Tolerably we as extremity exquisite do commanded.</p>
+
+  <div class="flq-tags" data-sr="post-tags" data-sr-distance="10" data-sr-interval="80" data-sr-duration="1000">
+    <ul>
+      <li data-sr-item="post-tags">
+        <a href="#" class="flq-tag">#Comedy</a>
+      </li>
+      <li data-sr-item="post-tags">
+        <a href="#" class="flq-tag">#Trailers</a>
+      </li>
+      <li data-sr-item="post-tags">
+        <a href="#" class="flq-tag">#Action</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="flq-post-author" data-sr data-sr-distance="10" data-sr-duration="1000">
+    <div class="flq-post-author-head">
+      {{ media('comment', user.image, user.first_name + ' ' + user.last_name, [['Posts by Author'], ['8 posts published']]) }}
+      {{ social({"facebook": "#", "twitter": "#"}, '18', class="flq-social-sm") }}
+    </div>
+    <div class="flq-post-author-body">
+      <p>Doubtful two bed way pleasure confined followed. Shew up ye away no eyes life or were this. Perfectly did suspicion daughters but his intention. Started on society an brought it explain. Position two saw greatest stronger old. Pianoforte if at simplicity do estimating.</p>
+    </div>
+  </div>
+
+  <div>
+    <div class="row gx-1 gy-1" data-sr="post-social" data-sr-distance="10" data-sr-interval="80" data-sr-duration="1000">
+      <div class="col" data-sr-item="post-social">
+        <a href="#" class="btn btn-block btn-sm btn-facebook btn-icon-xs">
+          <span class="btn-icon">{{ icon('facebook', '18', '18') }}</span>
+          <span class="btn-name">Share</span>
+        </a>
+      </div>
+      <div class="col" data-sr-item="post-social">
+        <a href="#" class="btn btn-block btn-sm btn-twitter btn-icon-xs">
+          <span class="btn-icon">{{ icon('twitter', '18', '18') }}</span>
+          <span class="btn-name">Tweet</span>
+        </a>
+      </div>
+      <div class="col" data-sr-item="post-social">
+        <a href="#" class="btn btn-block btn-sm btn-pinterest btn-icon-xs">
+          <span class="btn-icon">{{ icon('pinterest', '18', '18') }}</span>
+          <span class="btn-name">Pin</span>
+        </a>
+      </div>
+      <div class="col" data-sr-item="post-social">
+        <a href="#" class="btn btn-block btn-sm btn-linkedin btn-icon-xs">
+          <span class="btn-icon">{{ icon('linkedin', '18', '18') }}</span>
+          <span class="btn-name">Share</span>
+        </a>
+      </div>
+      <div class="col" data-sr-item="post-social">
+        <a href="#" class="btn btn-block btn-sm btn-dark btn-icon-xs">
+          <span class="btn-icon">{{ icon('mail-fill', '18', '18') }}</span>
+          <span class="btn-name">Share</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="flq-page-navigation">
+    <span class="flq-page-navigation-container">
+      <a class="flq-page-navigation-prev{{ ' flq-page-navigation-has-image' if blog.post_2.image }}" href="{{ blog.post_2.link }}">
+        <span class="flq-page-navigation-subtitle">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 21L12 15L18 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+
+          <span>Previous Post</span>
+        </span>
+
+        <span class="flq-page-navigation-content">
+          {% if blog.post_2.image %}
+          <span class="flq-page-navigation-image">{{ img(blog.post_2.image) }}</span>
+          {% endif %}
+
+          <span class="flq-page-navigation-title h4">{{ blog.post_2.title }}</span>
+          <span class="btn btn-link mt-3">View Post</span>
+        </span>
+      </a>
+
+      <a class="flq-page-navigation-next{{ ' flq-page-navigation-has-image' if blog.post_3.image }}" href="{{ blog.post_3.link }}">
+        <span class="flq-page-navigation-subtitle">
+          <span>Next Post</span>
+
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21L18 15L12 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+
+        <span class="flq-page-navigation-content">
+          {% if blog.post_3.image %}
+          <span class="flq-page-navigation-image">{{ img(blog.post_3.image) }}</span>
+          {% endif %}
+
+          <span class="flq-page-navigation-title h4">{{ blog.post_3.title }}</span>
+          <span class="btn btn-link mt-3">View Post</span>
+        </span>
+      </a>
+    </span>
+  </nav>
+
+  <h3 class="mt-7 mb-5">2 thoughts on “Extraction”</h3>
+
+  <div class="flq-comments" data-sr="post-comment" data-sr-distance="10" data-sr-interval="80" data-sr-duration="1000">
+    <ul>
+      <li class="flq-comment" data-sr-item="post-comment">
+        {{ media('comment', user.image, user.first_name + ' ' + user.last_name, [['January 6, 2021 at 1:24 pm', '#']]) }}
+
+        <div class="flq-comment-content flq-vertical-rhythm">
+          <p>To no indulgence diminution so discovered mr apartments. Are off under folly death wrote cause her way spite. Plan upon yet way get cold spot its week. Almost do am or limits hearts.</p>
+          <p>Resolve parties but why she shewing. She sang know now how nay cold real case.</p>
+          <p>Sportsman do offending supported extremity breakfast by listening. Decisively advantages nor expression unpleasing she led met. Estate was tended ten boy nearer seemed. As so seeing latter he should thirty whence. Steepest speaking up attended it as. Made neat an on be gave show snug tore.</p>
+        </div>
+
+        <a href="#" class="btn btn-link">Reply</a>
+      </li>
+
+      <li class="flq-comment" data-sr-item="post-comment">
+        {{ media('comment', actor.image_avatar, actor.name, [['January 4, 2021 at 11:05 am', '#']], '#') }}
+
+        <div class="flq-comment-content flq-vertical-rhythm">
+          <p>To no indulgence diminution so discovered mr apartments. Are off under folly death wrote cause her way spite. Plan upon yet way get cold spot its week. Almost do am or limits hearts.</p>
+        </div>
+
+        <a href="#" class="btn btn-link">Reply</a>
+      </li>
+    </ul>
+  </div>
+
+  <h3 class="mt-7 mb-5">Add a review</h3>
+    <form action="#">
+      <div class="row gy-4" data-sr="post-review" data-sr-distance="10" data-sr-interval="80" data-sr-duration="1000">
+        <div class="col-12" data-sr-item="post-review">
+          {{ form_textarea('Your Review', class="flq-form-message form-control-lg") }}
+        </div>
+        <div class="col-12 col-sm-6" data-sr-item="post-review">
+          {{ form_control('Your Name', 'text', class="flq-form-user form-control-lg") }}
+        </div>
+        <div class="col-12 col-sm-6" data-sr-item="post-review">
+          {{ form_control('Your Email', 'email', class="flq-form-mail form-control-lg") }}
+        </div>
+        <div class="col-12" data-sr-item="post-review">
+          {{ form_checkbox('Save my name, email, and website in this browser for the next time I comment.', 'form_check_review') }}
+        </div>
+        <div class="col-12 col-sm-auto" data-sr-item="post-review">
+          <button class="btn btn-block btn-lg">Post Comment</button>
+        </div>
+      </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block sidebar %}
+  {% include "shared/widgets-post.html" %}
+{% endblock %}
+
+{% block content_after %}
+  {% call slider(class="flq-swiper-effect-touch container-fluid mb-3", attr="data-sr data-sr-duration=1500 data-gap=20 data-buttons=true data-autoplay=2000 data-loop=true data-free-mode=true data-speed=1000 data-touch-ratio=0.6 data-breakpoints=320:3,500:4,848:5,1072:6,1280:8,1480:10") %}
+    {% for image in background_ticker[0] %}
+      <div class="swiper-slide">
+        {% call card_image(image, { "icon": "instagram", "width": "24", "height": "24" }, class="flq-card-image-instagram", class_img="flq-responsive flq-responsive-1x1") %}{% endcall %}
+      </div>
+    {% endfor %}
+    {% for image in background_ticker[1] %}
+      <div class="swiper-slide">
+        {% call card_image(image, { "icon": "instagram", "width": "24", "height": "24" }, class="flq-card-image-instagram", class_img="flq-responsive flq-responsive-1x1") %}{% endcall %}
+      </div>
+    {% endfor %}
+  {% endcall %}
+{% endblock %}

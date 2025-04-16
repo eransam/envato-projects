@@ -1,0 +1,46 @@
+<div class="flq-fancybox-content-signin fancybox-content" id="flq_popup_signin">
+  <div class="flq-signin">
+    <div class="flq-fancybox-head">
+      <div class="container{{ '-fluid' if not navbar_top_container }}">
+        {% if logo %}
+        <a href="index.html" class="flq-fancybox-brand me-auto">
+          {{ img(logo, class_img='flq-logo') }}
+        </a>
+        {% endif %}
+
+        {{ fancybox_close | safe }}
+      </div>
+    </div>
+
+    <div class="flq-fancybox-body pb-6">
+      <form action="#" class="flq-signin-content">
+        <h4 class="mb-4 pb-1 text-center">Login</h4>
+
+        <div class="row justify-content-between gy-4">
+          <div class="col-12">
+            {{ form_control('Username', 'text', class="flq-form-user flq-form-translucent") }}
+          </div>
+          <div class="col-12">
+            {{ form_control('Password', 'password', class="flq-form-lock flq-form-translucent") }}
+          </div>
+          <div class="col-auto">
+            {{ form_checkbox('Remember Me', 'signinRememberMe', class="flq-form-translucent") }}
+          </div>
+          <div class="col-auto">
+            <a href="#" class="flq-color-meta flq-color-title-hover">Lost Password</a>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-block">Login</button>
+          </div>
+          {% if signup %}
+          <div class="col-12 mt-3 text-center">
+            <a href="#" class="btn btn-link" data-fancybox data-src="#flq_popup_signup" data-base-class="flq-fancybox-signup" data-keyboard="false" data-animation-duration="1000" data-auto-focus="false" data-touch="false" data-close-existing="false" data-small-btn="false" data-toolbar="false">
+              Sign Up
+            </a>
+          </div>
+          {% endif %}
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

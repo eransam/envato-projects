@@ -1,0 +1,8 @@
+{{ widget('author', 'Author', user, attr="data-sr data-sr-duration=1000 data-sr-distance=10") }}
+{{ widget('search', 'Search', attr="data-sr data-sr-duration=1000 data-sr-distance=10") }}
+{{ widget('blog', 'Recent Posts', [blog.post_1, blog.post_2, blog.post_3], attr="data-sr data-sr-duration=1000 data-sr-distance=10") }}
+{{ widget(
+  'tag', 'Tags',
+  [['Comedy', '#'], ['Drama', '#'], ['Trailers', '#'], ['Movie Trailers', '#'], ['Horror', '#'], ['Thriller', '#'], ['TV Shows', '#'], ['Action', '#'], ['Music', '#'], ['Rider', '#'], ['Travel', '#'], ['Car', '#']],
+  attr="data-sr data-sr-duration=1000 data-sr-distance=10"
+) }}

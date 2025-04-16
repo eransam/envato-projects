@@ -1,0 +1,16 @@
+{% if scroll_top_button %}
+<!-- Scroll top button -->
+<div class="flq-scroll-top-wrapper">
+  <a class="flq-scroll-top-button flq-anchor" href="#page">
+    {{ icon('chevron-right', '24', '24') }}
+  </a>
+  {% if scroll_progress %}
+  <div class="flq-scroll-progress flq-scroll-progress-circle">
+    <svg>
+      <circle stroke="currentColor" r="0" fill="none" />
+    </svg>
+  </div>
+  {% endif %}
+</div>
+<!-- / Scroll top button -->
+{% endif %}

@@ -1,0 +1,279 @@
+{% from "macros/img.html" import img %}
+{% from "macros/icon.html" import icon %}
+{% from "macros/social.html" import social %}
+
+
+{% macro card(type="", data="", class="", class_img="", attr="") %}
+
+{% if type == 'blog-small' %}
+<div class="card flq-card-blog{{ ' ' + class if class }}"{{ ' ' + attr if attr }}>
+  {% if data.image %}
+  <div class="card-img-wrap">
+    <a href="{{ data.link }}">
+      {{ img(data.image, class=class_img) }}
+
+      {% if data.date %}
+      <span class="card-badge badge badge-dark badge-glass">{{ data.date }}</span>
+      {% endif %}
+    </a>
+  </div>
+  {% endif %}
+
+  <div class="card-body">
+    <h5 class="card-title h5"><a href="{{ data.link }}">{{ data.title }}</a></h5>
+
+    <p>{{ data.description | truncate(90, false, "...") }}</p>
+  </div>
+
+  {% if data.button %}
+  <a href="{{ data.link }}" class="btn btn-link btn-icon-md">
+    <span class="btn-name">{{ data.button }}</span>
+
+    <svg class="btn-icon-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22 12L1 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M17.7383 7.5L22.5494 12L17.7383 16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+  {% endif %}
+</div>
+{% endif %}
+
+
+{% if type == 'blog-classic' %}
+<div class="card flq-card-blog flq-card-blog-classic{{ ' ' + class if class }}"{{ ' ' + attr if attr }}>
+  {% if data.image %}
+  <div class="card-img-wrap">
+    <a href="{{ data.link }}">
+      {{ img(data.image, class=class_img) }}
+    </a>
+  </div>
+  {% endif %}
+
+  <div class="card-body">
+    {% if data.category %}
+    <span class="card-badge badge badge-dark flq-subtitle">{{ data.category }}</span>
+    {% endif %}
+
+    <h2 class="card-title"><a href="{{ data.link }}">{{ data.title }}</a></h2>
+
+    {% if data.meta %}
+    <div class="flq-meta">
+      <ul class="gx-4">
+        {% for name, link in data.meta %}
+        <li>
+          {% if link %}
+          <a href="{{ link }}">{{ name }}</a>
+          {% else %}
+          <span>{{ name }}</span>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    <p>{{ data.description | truncate(220, false, "...") }}</p>
+  </div>
+
+  {% if data.button %}
+  <a href="{{ data.link }}" class="btn">{{ data.button }}</a>
+  {% endif %}
+</div>
+{% endif %}
+
+
+{% if type == 'movie' or type == 'movie-small' %}
+<div class="card flq-card-blog{{ ' ' + class if class }}"{{ ' ' + attr if attr }}>
+  {% if data.image %}
+  <div class="card-img-wrap">
+    <a href="{{ data.link }}">
+    {% if type == 'movie-small' %}
+      {{ img(data.image_sm, class=class_img) }}
+    {% else %}
+      {{ img(data.image, class=class_img) }}
+    {% endif %}
+
+    {% if data.rating %}
+      <span class="card-badge badge badge-dark badge-glass flq-color-white{{ ' badge-sm' if type == 'movie-small' }}">{{ data.rating }}</span>
+    {% endif %}
+    </a>
+  </div>
+  {% endif %}
+
+  <div class="card-body">
+    <h5 class="card-title{{ ' h6' if type == 'movie-small' }}"><a href="{{ data.link }}">{{ data.title }}</a></h5>
+
+    {% if data.year or data.category %}
+    <div class="flq-meta flq-meta-sm">
+      <ul>
+        {% if data.year %}
+        <li>
+          <a href="{{ data.year_link }}" class="card-year">{{ data.year }}</a>
+        </li>
+        {% endif %}
+
+        {% if data.category %}
+        <li>
+          <a href="{{ data.category_link }}" class="card-category">{{ data.category }}</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+
+
+{% if type == 'movie-overlay' %}
+<a href="{{ data.link }}" class="card flq-card-movie flq-color-opacity{{ ' ' + class if class }}"{{ ' ' + attr if attr }}>
+  {% if data.image %}
+  <span class="card-img-wrap">
+    {{ img(data.image, class=class_img) }}
+  </span>
+  {% endif %}
+
+  {% if data.title or data.subtitle %}
+  <span class="card-body">
+    {% if data.rating %}
+      <span class="card-badge">{{ icon('rating') }} {{ data.rating }}</span>
+    {% endif %}
+
+    {% if data.title %}
+      <span class="card-title h5">{{ data.title }}</span>
+    {% endif %}
+
+    {% if data.description %}
+      <span class="card-description">
+        <span>{{ data.description | truncate(110, false, "...") }}</span>
+      </span>
+    {% endif %}
+  </span>
+  {% endif %}
+</a>
+{% endif %}
+
+
+{% if type == 'team' %}
+<div class="card flq-card-team{{ ' ' + class if class }}"{{ ' ' + attr if attr }}>
+  {% if data.image or data.social %}
+  <div class="card-img-wrap">
+    {% if data.image %}
+    <a href="{{ data.link }}">
+      {{ img(data.image, class=class_img) }}
+    </a>
+    {% endif %}
+
+    {{ social(data.social, '20', class_ul="gx-4 gy-4") }}
+  </div>
+  {% endif %}
+
+  {% if data.title or data.subtitle %}
+  <div class="card-body">
+    {% if data.title %}
+    <h5 class="card-title"><a href="{{ data.link }}">{{ data.title }}</a></h5>
+    {% endif %}
+
+    {% if data.subtitle %}
+    <p class="card-subtitle">{{ data.subtitle }}</p>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+
+{% endmacro %}
+
+
+{% macro card_feature(title="Title", card_icon="phone", descriptions=["description", "description"], link="", class="", attr="") %}
+{% if link %}
+<a href="{{ link  }}" class="card flq-card-feature{{ ' ' + class if class }}"{{ ' ' + attr if attr }}>
+  <span class="card-body">
+    {% if card_icon %}
+    <span class="card-icon">
+      {{ icon(card_icon, '30', '30') }}
+      {{ icon(card_icon + '-fill', '30', '30') }}
+    </span>
+    {% endif %}
+
+    {% if title %}
+    <span class="card-title h5">{{ title }}</span>
+    {% endif %}
+
+    {% if descriptions %}
+      {% for card_description in descriptions %}
+        <span class="paragraph">{{ card_description }}</span>
+      {% endfor %}
+    {% endif %}
+  </span>
+</a>
+{% else %}
+<div class="card flq-card-feature{{ ' ' + class if class }}"{{ ' ' + attr if attr }}>
+  <div class="card-body">
+    {% if card_icon %}
+    <div class="card-icon">
+      {{ icon(card_icon, '30', '30') }}
+      {{ icon(card_icon + '-fill', '30', '30') }}
+    </div>
+    {% endif %}
+
+    {% if title %}
+    <div class="card-title h5">{{ title }}</div>
+    {% endif %}
+
+    {% if descriptions %}
+      {% for card_description in descriptions %}
+        <p>{{ card_description }}</p>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+{% endmacro %}
+
+
+{% macro card_image(image="", overlay_icon="", link="#", class="", class_img="", attr="", attr_link="") %}
+<div class="card flq-card-image{{ ' ' + class if class }}"{{ ' ' + attr if attr }}>
+  <a href="{{ link }}" class="card-image"{{ ' ' + attr_link if attr_link }}>
+    {{ img(image, class=class_img) }}
+    {{ icon(overlay_icon.icon, overlay_icon.width, overlay_icon.height) }}
+  </a>
+  {% if caller() %}
+  <div class="card-body">
+    {{ caller() }}
+  </div>
+  {% endif %}
+</div>
+{% endmacro %}
+
+
+{% macro card_pricing(price="", subtitle="", description="", list="", button="", button_link="", button_class="", class="", attr="") %}
+<div class="card flq-card-pricing{{ ' ' + class if class }}"{{ ' ' + attr if attr }}>
+  <div class="card-head">
+    <div class="card-subtitle h6">{{ subtitle }}</div>
+    <div class="card-price h1"><span>$</span>{{ price }}<span>month</span></div>
+  </div>
+
+  {% if description or list %}
+  <div class="card-body flq-vertical-rhythm">
+    {% if description %}
+    <p>{{ description }}</p>
+    {% endif %}
+
+    {% if list %}
+    <ul>
+      {% for name in list %}
+      <li>{{ name }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% if button %}
+  <div class="card-footer">
+    <a href="{{ button_link }}" class="btn btn-block{{ ' ' + button_class if button_class }}">{{ button }}</a>
+  </div>
+  {% endif %}
+</div>
+{% endmacro %}

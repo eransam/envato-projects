@@ -1,0 +1,44 @@
+{% macro form_control(placeholder="", type="", label="", id="", class="", attr="") %}
+{%- if label -%}
+<label for="{{ id }}">{{ label | safe }}</label>
+{%- endif -%}
+<input class="form-control{{ ' ' + class if class }}" type="{{ type }}"{% if label or id %} id="{{ id }}"{% endif %}{% if placeholder %} placeholder="{{ placeholder }}"{{ ' ' + attr if attr }}{% endif %}>
+{% endmacro %}
+
+
+{% macro form_textarea(placeholder="", label="", id="", rows="5", class="", attr="") %}
+{%- if label -%}
+<label for="{{ id }}">{{ label | safe }}</label>
+{%- endif -%}
+<textarea class="form-control{{ ' ' + class if class }}" rows="{{ rows }}" {% if label or id %} id="{{ id }}"{% endif %}{% if placeholder %} placeholder="{{ placeholder }}"{% endif %}{{ ' ' + attr if attr }}></textarea>
+{% endmacro %}
+
+
+{% macro form_select(label="", id="", class="", attr="") %}
+{%- if label -%}
+<label for="{{ id }}">{{ label | safe }}</label>
+{%- endif -%}
+<select class="form-select{{ ' ' + class if class }}"{% if label or id %} id="{{ id }}"{% endif %}{{ ' ' + attr if attr }}>
+  {{ caller() }}
+</select>
+{% endmacro %}
+
+
+{% macro form_radio(label="", id="", class="", attr="") %}
+<div class="form-check{{ ' ' + class if class }}">
+  <input class="form-check-input" type="radio"{% if label or id %} id="{{ id }}"{% endif %}{{ ' ' + attr if attr }}>
+  {%- if label -%}
+  <label class="form-check-label" for="{{ id }}">{{ label | safe }}</label>
+  {%- endif -%}
+</div>
+{% endmacro %}
+
+
+{% macro form_checkbox(label="", id="", class="", attr="", attr_input="") %}
+<div class="form-check{{ ' ' + class if class }}"{{ ' ' + attr if attr }}>
+  <input class="form-check-input" type="checkbox"{% if label or id %} id="{{ id }}"{% endif %}{{ ' ' + attr_input if attr_input }}>
+  {%- if label -%}
+  <label class="form-check-label" for="{{ id }}">{{ label | safe }}</label>
+  {%- endif -%}
+</div>
+{% endmacro %}

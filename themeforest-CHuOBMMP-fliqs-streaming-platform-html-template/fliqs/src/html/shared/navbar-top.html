@@ -1,0 +1,120 @@
+{% macro submenu(nav) -%}
+  {% for file, item in nav %}
+    {%- if item.sub -%}
+    <li class="nav-item flq-dropdown flq-dropdown-nav{{ ' flq-dropdown-mega' if item.mega }}{{ ' active' if isActiveMenuItem(file, item, filename) }}">
+      <a href="{{ file | safe }}" class="nav-link" role="button">
+        <span class="nav-link-name">
+          {{- item.name | safe -}}
+        </span>
+      </a>
+      <div class="dropdown-menu gy-2">
+        {%- if item.mega and item.sub -%}
+          {{- megamenu(item.sub) -}}
+        {% else %}
+        <ul class="nav">
+          {{- submenu(item.sub) -}}
+        </ul>
+        {%- endif -%}
+      </div>
+    </li>
+    {% else %}
+    <li class="nav-item{{ ' active' if isActiveMenuItem(file, item, filename) }}">
+      <a href="{{ file | safe }}" class="nav-link">
+        <span class="nav-link-name">
+          {{- item.name | safe -}}
+        </span>
+      </a>
+    </li>
+    {% endif %}
+  {%- endfor %}
+{%- endmacro %}
+
+{% macro megamenu(nav) %}
+  <div class="container">
+  {% for file, item in nav %}
+    <ul role="menu" class="nav">
+      <li class="nav-item nav-item-label">
+        {{- item.name -}}
+      </li>
+      {{- submenu(item.sub) -}}
+    </ul>
+  {% endfor %}
+  </div>
+{% endmacro %}
+
+{% macro offcanvas_toggle(class="") %}
+{% if offcanvas %}
+<button class="btn btn-link{{ ' ' + class if class }}" data-bs-toggle="offcanvas" data-bs-target="#flq_offcanvas">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+{% endif %}
+{% endmacro %}
+
+<!-- Navbar top -->
+<nav class="flq-navbar flq-navbar-top{{ ' flq-navbar-top-cloud' if navbar_top_cloud }}{{ ' flq-navbar-top-fixed' if navbar_top_fixed }}">
+  <div class="flq-navbar-container container{{ '-fluid' if not navbar_top_container }}">
+    {% if offcanvas_orientation == 'start' %}
+    {{ offcanvas_toggle('me-4') }}
+    {% endif %}
+
+    {% if logo %}
+    <a href="index.html" class="flq-navbar-brand me-auto{{ ' me-auto me-' + navbar_top_expand + '-4' if navbar_top_expand }}">
+      {{ img(logo, class_img='flq-logo') }}
+    </a>
+    {% endif %}
+
+    {% if navigation %}
+    <ul class="nav nav-parent flex-grow-1 flq-navbar-nav{{ ' justify-content-' + navbar_top_align if navbar_top_align  }} d-none{{ ' d-' + navbar_top_expand + '-flex' if navbar_top_expand }}">
+      {{ submenu(navigation) }}
+    </ul>
+    {% endif %}
+
+    {% if search %}
+    <button class="btn btn-link btn-icon-md ms-5{{ ' d-none d-sm-flex' if navbar_icons }}" data-fancybox data-src="#flq_popup_search" data-base-class="flq-fancybox-search" data-animation-duration="1000" data-keyboard="false" data-auto-focus="true" data-touch="false" data-close-existing="true" data-small-btn="false" data-toolbar="false">
+      {{ icon('search', '22', '22') }}
+    </button>
+    {% endif %}
+
+    {% if signin %}
+    <div class="d-flex align-items-center ms-4{{ ' d-none d-sm-flex' if navbar_icons }}">
+      <button class="btn btn-xs btn-outline btn-white d-none d-md-flex" data-fancybox data-src="#flq_popup_signin" data-base-class="flq-fancybox-signin" data-animation-duration="1000" data-keyboard="false" data-auto-focus="false" data-touch="false" data-close-existing="true" data-small-btn="false" data-toolbar="false">
+        Join Now
+      </button>
+      <button class="btn btn-link btn-icon-md d-md-none" data-fancybox data-src="#flq_popup_signin" data-base-class="flq-fancybox-signin" data-animation-duration="1000" data-keyboard="false" data-auto-focus="false" data-touch="false" data-close-existing="true" data-small-btn="false" data-toolbar="false">
+        {{ icon('login', '22', '22') }}
+      </button>
+    </div>
+    {% endif %}
+
+    {% if logined %}
+    <div class="flq-dropdown flq-dropdown-nav ms-4{{ ' d-none d-sm-flex' if navbar_icons }}">
+      <button class="btn btn-link align-self-center">
+        {{ img(user.image, class="flq-navbar-top-user") }}
+      </button>
+
+      {% if navigation_user %}
+      <div class="dropdown-menu gy-2">
+        <ul class="nav">
+          {{ submenu(navigation_user) }}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if offcanvas_orientation == 'end' %}
+    {{ offcanvas_toggle('ms-4') }}
+    {% endif %}
+
+    {% if navbar_mobile %}
+    <button class="flq-navbar-top-toggle btn btn-link ms-4 d-flex{{ ' d-' + navbar_top_expand + '-none' if navbar_top_expand }}" data-fancybox data-src="#flq_navbar_mobile" data-base-class="flq-fancybox-navbar" data-animation-duration="1000" data-keyboard="false" data-auto-focus="false" data-touch="false" data-close-existing="true" data-small-btn="false" data-toolbar="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    {% endif %}
+  </div>
+</nav>
+<!-- / Navbar top -->

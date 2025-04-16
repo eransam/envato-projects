@@ -1,0 +1,47 @@
+<div class="flq-fancybox-content-signup fancybox-content" id="flq_popup_signup">
+  <div class="flq-signup">
+    <div class="flq-fancybox-head">
+      <div class="container{{ '-fluid' if not navbar_top_container }}">
+        {% if logo %}
+        <a href="index.html" class="flq-fancybox-brand me-auto">
+          {{ img(logo, class_img='flq-logo') }}
+        </a>
+        {% endif %}
+
+        {{ fancybox_close | safe }}
+      </div>
+    </div>
+
+    <div class="flq-fancybox-body pb-6">
+      <form action="#" class="flq-signup-content">
+        <h4 class="mb-4 pb-1 text-center">Sign Up</h4>
+
+        <div class="row gy-4">
+          <div class="col-12">
+            {{ form_control('Email', 'email', class="flq-form-mail flq-form-translucent") }}
+          </div>
+          <div class="col-12">
+            {{ form_control('Password', 'password', class="flq-form-lock flq-form-translucent") }}
+          </div>
+          <div class="col-12">
+            {{ form_checkbox('I have read and agree to the terms and conditions.', 'signupTerms', class="flq-form-translucent") }}
+          </div>
+          <div class="col-12">
+            <button class="btn btn-block">Sign Up</button>
+          </div>
+          <div class="col-12 text-center mt-1">or</div>
+          <div class="col-12 mt-1">
+            <div class="row justify-content-center gy-1">
+              <div class="col-auto">
+                <a href="#" class="btn btn-link">Facebook</a>
+              </div>
+              <div class="col-auto">
+                <a href="#" class="btn btn-link">Twitter</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

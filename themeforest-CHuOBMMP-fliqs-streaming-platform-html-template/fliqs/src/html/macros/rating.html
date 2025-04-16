@@ -1,0 +1,23 @@
+{% from "macros/icon.html" import icon %}
+{% set icon_rating = icon(['M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z']) %}
+
+{% macro rating(width="") %}
+<div class="flq-rating" style="--flq-rating--width: {{ width if width else '0%' }};">
+  <span>
+    <span></span>
+    <span></span>
+  </span>
+</div>
+{% endmacro %}
+
+{% macro rating_dynamic() %}
+<span class="flq-rating-dynamic">
+  <span>
+    <input type="radio" id="{{ name }}-rate-1" name="{{ name }}-rate" value="1">
+    <input type="radio" id="{{ name }}-rate-2" name="{{ name }}-rate" value="2">
+    <input type="radio" id="{{ name }}-rate-3" name="{{ name }}-rate" value="3">
+    <input type="radio" id="{{ name }}-rate-4" name="{{ name }}-rate" value="4">
+    <input type="radio" id="{{ name }}-rate-5" name="{{ name }}-rate" value="5">
+  </span>
+</span>
+{% endmacro %}

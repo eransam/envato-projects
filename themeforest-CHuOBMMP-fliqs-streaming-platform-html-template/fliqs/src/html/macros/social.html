@@ -1,0 +1,13 @@
+{% from "macros/icon.html" import icon %}
+
+{% macro social(data="", size="", class="", class_ul="", attr="", attr_ul="", attr_link="") %}
+  <div class="flq-social{{ ' ' + class if class }}"{{ ' ' + attr if attr }}>
+    <ul{% if class_ul %} class="{{ class_ul }}"{% endif %}{{ ' ' + attr_ul if attr_ul }}>
+      {% for name, link in data %}
+      <li>
+        <a href="{{ link }}" class="flq-social-link"{{ ' ' + attr_link if attr_link }}>{{ icon(name, size, size) }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endmacro %}

@@ -1,0 +1,422 @@
+{
+  "assets_version": "1.0.0",
+  "adobe_fonts": false,
+  "google_fonts": "https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap",
+  "custom_css": false,
+  "custom_styles": false,
+  "custom_script": false,
+  "page_title": false,
+  "scroll_top_button": true,
+  "scroll_progress": true,
+  "preloader": true,
+  "logo": "logo.svg",
+  "logo_name": "FLIQS",
+  "navbar_top_cloud": false,
+  "navbar_top_fixed": false,
+  "navbar_top_container": false,
+  "navbar_top_align": "center",
+  "navbar_top_expand": "lg",
+  "navbar_mobile": true,
+  "navbar_mobile_widgets": true,
+  "navbar_icons": true,
+  "offcanvas": true,
+  "offcanvas_orientation": "start",
+  "search": true,
+  "signin": true,
+  "signup": true,
+  "logined": true,
+  "footer_show": true,
+  "footer_copyright_show": true,
+  "footer_copyright": "© 2021 FLIQS.",
+  "footer_socials": true,
+  "socials": {
+    "twitter": "#",
+    "facebook": "#",
+    "instagram": "#"
+  },
+  "navigation": {
+    "index.html": {
+      "name": "Home"
+    },
+    "pricing.html": {
+      "name": "Pricing"
+    },
+    "movies.html": {
+      "name": "Movies",
+      "sub": {
+        "movies.html": {
+          "name": "Movies"
+        },
+        "single-movie.html": {
+          "name": "Single Movie"
+        },
+        "single-actor.html": {
+          "name": "Single Actor"
+        }
+      }
+    },
+    "tv-shows.html": {
+      "name": "TV Shows"
+    },
+    "blog.html": {
+      "name": "Blog",
+      "sub": {
+        "blog.html": {
+          "name": "Blog"
+        },
+        "single-post.html": {
+          "name": "Single Post"
+        }
+      }
+    },
+    "about.html": {
+      "name": "Pages",
+      "sub": {
+        "about.html": {
+          "name": "About"
+        },
+        "contact.html": {
+          "name": "Contact Us"
+        },
+        "faq.html": {
+          "name": "FAQ"
+        },
+        "coming-soon.html": {
+          "name": "Coming Soon"
+        },
+        "404.html": {
+          "name": "404"
+        }
+      }
+    }
+  },
+  "navigation_user": {
+    "account-profile.html": {
+      "name": "Profile"
+    },
+    "account-favorites.html": {
+      "name": "Favorites"
+    },
+    "account-reviews.html": {
+      "name": "Reviews & Comments"
+    },
+    "account-edit.html": {
+      "name": "Account Edit"
+    },
+    "account-notifications.html": {
+      "name": "Notifications"
+    },
+    "account-logout.html": {
+      "name": "Logout"
+    }
+  },
+  "user": {
+    "image": "user-160x160.jpg",
+    "image_widget": "user-640x360.jpg",
+    "first_name": "David",
+    "last_name": "Hill",
+    "country": "California",
+    "city": "Los Angeles",
+    "gender": "Male",
+    "description": "He went such dare good mr fact. The small own seven saved man age offer. Suspicion did mrs nor furniture smallness.",
+    "date_of_birth": "November 29, 1990",
+    "years": "30 years"
+  },
+  "actor": {
+    "name": "Anne Chase",
+    "image": "actor/anna-chase-660x960.jpg",
+    "image_avatar": "actor/anna-chase-160x160.jpg",
+    "image_popup": "actor/anna-chase-1480x2160.jpg",
+    "image_background": "actor/anna-chase-3840x2160.jpg",
+    "growth": "165 cm",
+    "link": "single-actor.html",
+    "years": "30 years",
+    "date_of_birth": "November 29, 1990",
+    "place_of_birth": "Los Angeles, California",
+    "genres": [["Action", "#"], ["Drama", "#"], ["Comedy", "#"]]
+  },
+  "team": {
+    "person_1": {
+      "title": "Jacob Morris",
+      "subtitle": "Director",
+      "link": "#",
+      "image": "team/jacob-615x680.jpg",
+      "social": [["facebook", "#"], ["twitter", "#"], ["instagram", "#"]]
+    },
+    "person_2": {
+      "title": "Polly West",
+      "subtitle": "Designer",
+      "link": "#",
+      "image": "team/polly-615x680.jpg",
+      "social": [["facebook", "#"], ["twitter", "#"], ["instagram", "#"]]
+    },
+    "person_3": {
+      "title": "David Berry",
+      "subtitle": "Designer",
+      "link": "#",
+      "image": "team/david-615x680.jpg",
+      "social": [["facebook", "#"], ["twitter", "#"], ["instagram", "#"]]
+    },
+    "person_4": {
+      "title": "Mark Hill",
+      "subtitle": "Development",
+      "link": "#",
+      "image": "team/mark-615x680.jpg",
+      "social": [["facebook", "#"], ["twitter", "#"], ["instagram", "#"]]
+    }
+  },
+  "background_ticker": [
+    [
+      "assets/images/background-ticker/1.jpg",
+      "assets/images/background-ticker/2.jpg",
+      "assets/images/background-ticker/3.jpg",
+      "assets/images/background-ticker/4.jpg",
+      "assets/images/background-ticker/5.jpg",
+      "assets/images/background-ticker/6.jpg",
+      "assets/images/background-ticker/7.jpg",
+      "assets/images/background-ticker/8.jpg",
+      "assets/images/background-ticker/9.jpg"
+    ],
+    [
+      "assets/images/background-ticker/10.jpg",
+      "assets/images/background-ticker/11.jpg",
+      "assets/images/background-ticker/12.jpg",
+      "assets/images/background-ticker/13.jpg",
+      "assets/images/background-ticker/14.jpg",
+      "assets/images/background-ticker/15.jpg",
+      "assets/images/background-ticker/16.jpg",
+      "assets/images/background-ticker/17.jpg",
+      "assets/images/background-ticker/18.jpg"
+    ]
+  ],
+  "tv_shows": {
+    "show_1": {
+      "title": "Believe",
+      "image": "tv-shows/show-1-1290x1290.jpg",
+      "image_sm": "tv-shows/show-1-390x440.jpg",
+      "image_xs": "tv-shows/show-1-120x120.jpg",
+      "link": "single-movie.html",
+      "duration": "55m",
+      "rating": "7.2",
+      "year": "2021",
+      "year_link": "#",
+      "category": "Romance",
+      "category_link": "#"
+    },
+    "show_2": {
+      "title": "Ghost",
+      "image": "tv-shows/show-2-1290x1290.jpg",
+      "image_sm": "tv-shows/show-2-390x440.jpg",
+      "link": "single-movie.html",
+      "rating": "6.9",
+      "year": "2019",
+      "year_link": "#",
+      "category": "Horror",
+      "category_link": "#"
+    },
+    "show_3": {
+      "title": "Busanhaeng",
+      "image": "tv-shows/show-3-1290x1290.jpg",
+      "image_sm": "tv-shows/show-3-390x440.jpg",
+      "link": "single-movie.html",
+      "rating": "6.2",
+      "year": "2016",
+      "year_link": "#",
+      "category": "Adventure",
+      "category_link": "#"
+    },
+    "show_4": {
+      "title": "The Ultimate Wave",
+      "image": "tv-shows/show-4-1290x1290.jpg",
+      "image_sm": "tv-shows/show-4-390x440.jpg",
+      "link": "single-movie.html",
+      "rating": "7.6",
+      "year": "2018",
+      "year_link": "#",
+      "category": "Comedy",
+      "category_link": "#"
+    },
+    "show_5": {
+      "title": "Traveler",
+      "image": "tv-shows/show-5-1290x1290.jpg",
+      "image_sm": "tv-shows/show-5-390x440.jpg",
+      "link": "single-movie.html",
+      "rating": "7.8",
+      "year": "2021",
+      "year_link": "#",
+      "category": "Adventure",
+      "category_link": "#"
+    },
+    "show_6": {
+      "title": "Spirit",
+      "image": "tv-shows/show-6-1290x1290.jpg",
+      "image_sm": "tv-shows/show-6-390x440.jpg",
+      "link": "single-movie.html",
+      "rating": "9.0",
+      "year": "2014",
+      "year_link": "#",
+      "category": "Drama",
+      "category_link": "#"
+    },
+    "show_7": {
+      "title": "Everest",
+      "image": "tv-shows/show-7-1290x1290.jpg",
+      "image_sm": "tv-shows/show-7-390x440.jpg",
+      "link": "single-movie.html",
+      "rating": "6.0",
+      "year": "2000",
+      "year_link": "#",
+      "category": "Action",
+      "category_link": "#"
+    },
+    "show_8": {
+      "title": "Sniper",
+      "image": "tv-shows/show-8-1290x1290.jpg",
+      "image_sm": "tv-shows/show-8-390x440.jpg",
+      "link": "single-movie.html",
+      "rating": "6.2",
+      "year": "2015",
+      "year_link": "#",
+      "category": "War",
+      "category_link": "#"
+    },
+    "show_9": {
+      "title": "Life of Pi",
+      "image": "tv-shows/show-9-1290x1290.jpg",
+      "image_sm": "tv-shows/show-9-390x440.jpg",
+      "link": "single-movie.html",
+      "rating": "7.1",
+      "year": "2019",
+      "year_link": "#",
+      "category": "Drama",
+      "category_link": "#"
+    },
+    "show_10": {
+      "title": "Freedom Writers",
+      "image": "tv-shows/show-10-1290x1290.jpg",
+      "image_sm": "tv-shows/show-10-390x440.jpg",
+      "link": "single-movie.html",
+      "duration": "2h 8m",
+      "rating": "6.7",
+      "year": "2017",
+      "year_link": "#",
+      "category": "Crime",
+      "category_link": "#"
+    },
+    "show_11": {
+      "title": "Grind",
+      "image": "tv-shows/show-11-1290x1290.jpg",
+      "image_sm": "tv-shows/show-11-390x440.jpg",
+      "link": "single-movie.html",
+      "rating": "6.3",
+      "year": "2003",
+      "year_link": "#",
+      "category": "Action",
+      "category_link": "#"
+    },
+    "show_12": {
+      "title": "Interstellar",
+      "image": "tv-shows/show-12-1290x1290.jpg",
+      "image_sm": "tv-shows/show-12-390x440.jpg",
+      "link": "single-movie.html",
+      "rating": "8.6",
+      "year": "2014",
+      "year_link": "#",
+      "category": "Adventure",
+      "category_link": "#"
+    }
+  },
+  "movies": {
+    "movie_1": {
+      "image": "movies/movie-1-1290x1290.jpg",
+      "image_xs": "movies/movie-1-120x120.jpg",
+      "image_bg": "movies/movie-1-3840x2160.jpg",
+      "image_bg_blur": "movies/movie-1-blur-1920x1080.jpg",
+      "image_trailer": "movies/movie-1-trailer-1540x860.jpg",
+      "title": "Princess Yako",
+      "rating": "8.4",
+      "duration": "2h 14m",
+      "year": "1997",
+      "link": "single-movie.html",
+      "category": "Action",
+      "category_link": "#",
+      "description": "On a journey to find the cure for a Tatarigami's curse, Ashitaka finds himself in the middle of a war between the forest gods and Tatara, a mining colony. In this quest he also meets San, the Mononoke Hime."
+    },
+    "movie_2": {
+      "image": "movies/movie-2-1290x1290.jpg",
+      "image_bg": "movies/movie-2-3840x2160.jpg",
+      "title": "Unbounded",
+      "rating": "7.1",
+      "duration": "1h 14m",
+      "year": "2021",
+      "link": "single-movie.html",
+      "category": "Documentary",
+      "category_link": "#",
+      "description": "Unaided and inexperienced, a crew of four venture through the most rural and inaccessible natural areas of Chile."
+    },
+    "movie_3": {
+      "image": "movies/movie-3-1290x1290.jpg",
+      "image_bg": "movies/movie-3-3840x2160.jpg",
+      "title": "Captain Marvel",
+      "rating": "7.4",
+      "year": "2019",
+      "link": "single-movie.html",
+      "category": "Action",
+      "category_link": "#",
+      "description": "Carol Danvers becomes one of the universe's most powerful heroes when Earth is caught in the middle of a galactic war between two alien races."
+    },
+    "movie_4": {
+      "image": "movies/movie-4-1290x1290.jpg",
+      "title": "The Fast and the Furious",
+      "rating": "6.8",
+      "year": "2001",
+      "link": "single-movie.html",
+      "category": "Thriller",
+      "category_link": "#",
+      "description": "Los Angeles police officer Brian O'Conner must decide where his loyalty really lies when he becomes enamored with the street racing world he has been sent undercover to destroy."
+    },
+    "movie_5": {
+      "image": "movies/movie-5-1290x1290.jpg",
+      "title": "The Last Duel",
+      "rating": "7.7",
+      "year": "2021",
+      "link": "single-movie.html",
+      "category": "Action",
+      "category_link": "#",
+      "description": "King Charles VI declares that Knight Jean de Carrouges settle his dispute with his squire by challenging him to a duel."
+    }
+  },
+  "blog": {
+    "post_1": {
+      "title": "Girlfriend. How and why",
+      "link": "single-post.html",
+      "date": "November 20, 2021",
+      "image": "blog/post-1-740x420.jpg",
+      "image_sm": "blog/post-1-120x120.jpg",
+      "category": "Analysis",
+      "meta": [["David H.", "#"], ["November 20, 2021", "#"], ["2 Comments", "#"]],
+      "description": "Earth first saw earth which seas void i thing said bearing behold and can't unto. Blessed itself years. Also you. Bring brought won't rule spirit fruitful tree fifth from seasons one saw cattle have fruitful fifth abundantly thing under land.",
+      "button": "Read More"
+    },
+    "post_2": {
+      "title": "Years is air whose lesser. You'll thing waters unto brought.",
+      "link": "single-post.html",
+      "date": "November 18, 2021",
+      "image": "blog/post-2-740x420.jpg",
+      "category": "Lifestyle",
+      "meta": [["David H.", "#"], ["November 18, 2021", "#"], ["2 Comments", "#"]],
+      "description": "From said, our they're darkness void meat from, bearing. Void, beginning fruitful he were called moved is divide, lesser light green creature. Moving make don't midst deep, firmament us gathering give shall. Earth air multiply appear creeping deep earth firmament.",
+      "button": "Read More"
+    },
+    "post_3": {
+      "title": "Is under void created his hath. One moving Appear hath.",
+      "link": "single-post.html",
+      "date": "November 15, 2021",
+      "image": "blog/post-3-740x420.jpg",
+      "category": "Category",
+      "meta": [["David H.", "#"], ["November 15, 2021", "#"], ["2 Comments", "#"]],
+      "description": "Spirit herb subdue second form lights green isn't a sixth had creepeth is night spirit appear above let. Greater divided him appear. May she'd isn't from living their itself own hath replenish, likeness day. Be together moving man that. Is.",
+      "button": "Read More"
+    }
+  }
+}

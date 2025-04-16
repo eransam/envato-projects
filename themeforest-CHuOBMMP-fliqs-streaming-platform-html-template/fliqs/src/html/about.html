@@ -1,0 +1,97 @@
+{% set page_title = 'About Us' %}
+
+{% extends 'layouts/layout.html' %}
+
+{% block header %}
+<div class="flq-background py-7">
+  {% include 'shared/background-ticker.html' %}
+  <div class="flq-background-overlay" style="background-color: hsla(var(--flq-color-black), 0.8);"></div>
+
+  <div class="container text-center" data-sr="banner-text" data-sr-interval="100" data-sr-distance="10" data-sr-duration="1000">
+    <h1 class="display-5 mb-1" data-sr-item="banner-text">{{ page_title }}</h1>
+
+    <nav aria-label="breadcrumb" data-sr-item="banner-text">
+      <ol class="breadcrumb flq-color-opacity">
+        <li class="breadcrumb-item"><a href="demo.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ page_title }}</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="py-7">
+  <div class="container">
+    <div class="row justify-content-center mb-6">
+      <div class="col-12 col-lg-10 col-xl-8 flq-vertical-rhythm text-center" data-sr="team-text" data-sr-interval="100" data-sr-distance="10" data-sr-duration="1000">
+        <span class="flq-subtitle badge" data-sr-item="team-text">Our Team</span>
+        <h2 class="display-6" data-sr-item="team-text">Masterminds Team</h2>
+        <p class="lead" data-sr-item="team-text">Hath divided set. Greater open divided lights moving a wherein, you're you'll the forth from god. All creeping him creeping be whales god seasons herb winged our were all make.</p>
+      </div>
+    </div>
+
+    <div class="row gy-5" data-sr="team-card" data-sr-interval="100" data-sr-distance="10" data-sr-duration="1000" data-sr-delay="100">
+    {% for name in [1, 2, 3, 4] %}
+      <div class="col-12 col-sm-6 col-lg" data-sr-item="team-card">
+        {{ card('team', team['person_' + name]) }}
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div class="py-7 flq-background-color-100">
+  <div class="container">
+    <div class="row align-items-center justify-content-center g-6">
+      <div class="col-12 col-xl-7 order-xl-5" data-sr data-sr-delay="300" data-sr-distance="10" data-sr-origin="right" data-sr-duration="1500">
+        <!-- Google Map -->
+        <div id="google-map" class="flq-gmaps flq-rounded"></div>
+        {{ google_map() }}
+        <!-- /Google Map -->
+      </div>
+
+      <div class="col-12 col-lg-9 col-xl flq-vertical-rhythm text-center text-xl-start" data-sr="contact-text" data-sr-interval="100" data-sr-distance="10" data-sr-duration="1000">
+        <h2 class="h1" data-sr-item="contact-text">Contact Us Here</h2>
+        <p data-sr-item="contact-text">Meat green years moving firmament fish unto fowl very were moved place his years divide first fruitful greater fruit.</p>
+
+        <div class="row gx-5 gx-sm-4 justify-content-center" data-sr="contact-count" data-sr-interval="100" data-sr-distance="10" data-sr-duration="1000">
+          <div class="col-auto col-sm" data-sr-item="contact-count">
+            <div class="flq-counter-box">
+              <span class="flq-counter-box-number h4"><span class="flq-count">4</span></span>
+              <span class="flq-counter-box-subtitle h6">Branch</span>
+            </div>
+          </div>
+          <div class="col-auto d-none d-sm-block" data-sr-item="contact-count"><div class="vr h-100"></div></div>
+          <div class="col-auto col-sm" data-sr-item="contact-count">
+            <div class="flq-counter-box">
+              <span class="flq-counter-box-number h4"><span class="flq-count">500</span>+</span>
+              <span class="flq-counter-box-subtitle h6">Employee</span>
+            </div>
+          </div>
+          <div class="col-auto d-none d-sm-block" data-sr-item="contact-count"><div class="vr h-100"></div></div>
+          <div class="col-auto col-sm" data-sr-item="contact-count">
+            <div class="flq-counter-box">
+              <span class="flq-counter-box-number h4"><span class="flq-count">1,000</span>+</span>
+              <span class="flq-counter-box-subtitle h6">Clients</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="contact.html" class="btn mt-0" data-sr data-sr-delay="200" data-sr-distance="10" data-sr-duration="1000">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="py-7" data-sr data-sr-duration="1500">
+  {% call slider_ticker('', 'data-gap=120 data-pixels-per-second=40') %}
+    {% for brand_icon, brand_link in [['brand-1', '#'], ['brand-2', '#'], ['brand-3', '#'], ['brand-4', '#'], ['brand-5', '#'], ['brand-6', '#'], ['brand-7', '#']] %}
+      <div class="flq-image-ticker-item">
+        <a href="{{ brand_link }}">{{ icon(brand_icon) }}</a>
+      </div>
+    {% endfor %}
+  {% endcall %}
+</div>
+{% endblock %}

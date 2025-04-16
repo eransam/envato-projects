@@ -1,0 +1,13 @@
+V 1.0.0 - Oct 4, 2023
+----------------------------
+Initial release
+
+V 1.2.0 - Oct 17, 2023
+----------------------------
+Added: Order Received and Order View Page
+Fixed: Header Cart Item count
+Modified: Checkout form data processing
+
+V 1.2.1 - May 9, 2024
+----------------------------
+Updated: Bootstrap v5.3.3

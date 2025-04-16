@@ -1,0 +1,34 @@
+<div class="flq-fancybox-content-search fancybox-content" id="flq_popup_search">
+  <div class="flq-search">
+    <div class="flq-fancybox-body pb-6">
+      <div class="container-small">
+        <div class="flq-search-content">
+          <form action="#">
+            {{ form_control('Type to Search', 'text', class="form-control-lg flq-form-glass flq-search-input", attr="name=search") }}
+            <button class="btn btn-link btn-icon-md flq-search-btn" type="button">
+              {{ icon('search', '22', '22') }}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="flq-fancybox-head">
+      <div class="container{{ '-fluid' if not navbar_top_container }}">
+        {% if logo %}
+        <a href="index.html" class="flq-fancybox-brand me-auto">
+          {{ img(logo, class_img='flq-logo') }}
+        </a>
+        {% endif %}
+
+        {{ fancybox_close | safe }}
+      </div>
+    </div>
+
+    <div class="flq-fancybox-footer">
+      <div class="container-small">
+        {{ social(socials, '20', 'text-center', class_ul="g-4", attr_link="data-sr-item=footer-copyright") }}
+      </div>
+    </div>
+  </div>
+</div>

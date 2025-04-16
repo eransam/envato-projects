@@ -1,0 +1,41 @@
+{% set fancybox_close %}
+<button class="flq-fancybox-close btn btn-link ms-4" data-fancybox-close>
+  <span></span>
+</button>
+{% endset %}
+
+{% if navbar_mobile %}
+<!-- Popup navbar mobile -->
+  {% include "popups/navbar.html" %}
+<!-- / Popup navbar mobile -->
+{% endif %}
+
+{% if navigation_user %}
+<!-- Popup navbar user -->
+  {% include "popups/navbar-user.html" %}
+<!-- / Popup navbar user -->
+{% endif %}
+
+{% if search %}
+<!-- Popup search -->
+  {% include "popups/search.html" %}
+<!-- / Popup search -->
+{% endif %}
+
+{% if signin %}
+<!-- Popup signin -->
+  {% include "popups/signin.html" %}
+<!-- / Popup signin -->
+{% endif %}
+
+{% if signup %}
+<!-- Popup signup -->
+  {% include "popups/signup.html" %}
+<!-- / Popup signup -->
+{% endif %}
+
+{% if offcanvas %}
+<!-- Offcanvas -->
+{% include "popups/offcanvas.html" %}
+<!-- / Offcanvas -->
+{% endif %}

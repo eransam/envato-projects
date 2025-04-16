@@ -1,0 +1,145 @@
+{% set page_title = 'Account Edit' %}
+{% set page_sidebar = true %}
+{% set page_sidebar_account = true %}
+{% set page_sidebar_order = '5' %}
+{% set container_class = ' pt-5 pb-7' %}
+
+
+{% extends 'layouts/layout.html' %}
+
+{% block content_with_sidebar %}
+<div class="flq-account-content" data-sr data-sr-delay="300" data-sr-duration="1200" data-sr-distance="10">
+  <form action="#">
+    <div class="row gx-0 mb-5">
+      <div class="col-12">
+        <div class="row gy-1 gx-4 align-items-center">
+          <div class="col-12 col-md-4 col-xl-3 flq-color-title">Avatar</div>
+          <div class="col-12 col-sm">
+            <div class="flq-account-avatar">
+              {% call card_image(user.image, { "icon": "edit" }, class_img="flq-responsive flq-responsive-1x1") %}{% endcall %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row gy-3 gx-0">
+      <div class="col-12">
+        <div class="row gy-1 gx-4 align-items-center">
+          <div class="col-12 col-md-4 col-xl-3 flq-color-title">
+            <label for="accountFirstName">First Name</label>
+          </div>
+          <div class="col-12 col-sm">
+            {{ form_control(user.first_name, 'text', id="accountFirstName") }}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="row gy-1 gx-4 align-items-center">
+          <div class="col-12 col-md-4 col-xl-3 flq-color-title">
+            <label for="accountLastName">Last Name</label>
+          </div>
+          <div class="col-12 col-sm">
+            {{ form_control(user.last_name, 'text', id="accountLastName") }}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="row gy-1 gx-4 align-items-center">
+          <div class="col-12 col-md-4 col-xl-3 flq-color-title">
+            <label for="accountEmail">Email Address</label>
+          </div>
+          <div class="col-12 col-sm">
+            {{ form_control('fliqs@demo.com', 'email', id="accountEmail") }}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="row gy-1 gx-4 align-items-center">
+          <div class="col-12 col-md-4 col-xl-3 flq-color-title">
+            <label for="accountPhone">Phone</label>
+          </div>
+          <div class="col-12 col-sm">
+            {{ form_control('1 (10*) ***-**49', 'tel', id="accountPhone") }}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 flq-account-form-highlight mt-4 pt-1">
+        <div class="row gy-1 gx-4 align-items-center">
+          <div class="col-12 col-md-4 col-xl-3 flq-color-title">
+            <label for="accountCurrentPassword">Current Password</label>
+          </div>
+          <div class="col-12 col-sm">
+            {{ form_control('Current Password', 'password', id="accountCurrentPassword") }}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 flq-account-form-highlight mb-1 pb-1">
+        <div class="row gy-1 gx-4 align-items-center">
+          <div class="col-12 col-md-4 col-xl-3 flq-color-title">
+            <label for="accountPassword">New Password</label>
+          </div>
+          <div class="col-12 col-sm">
+            {{ form_control('New Password', 'password', id="accountPassword") }}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="row gy-1 gx-4 align-items-center">
+          <div class="col-12 col-md-4 col-xl-3 flq-color-title">
+            <label for="accountGender">Gender</label>
+          </div>
+          <div class="col-12 col-sm">
+            {{ form_control(user.gender, 'text', id="accountGender") }}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="row gy-1 gx-4 align-items-center">
+          <div class="col-12 col-md-4 col-xl-3 flq-color-title">
+            <label for="accountDateOfBirth">Date of Birth</label>
+          </div>
+          <div class="col-12 col-sm">
+            {{ form_control(user.date_of_birth, 'text', id="accountDateOfBirth") }}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 mt-5">
+        <div class="row g-3 justify-content-end">
+          <div class="col-12 col-sm-auto">
+            <button class="btn btn-dark btn-block">Cancel</button>
+          </div>
+          <div class="col-12 col-sm-auto">
+            <button class="btn btn-block">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
+
+
+{% block sidebar %}
+<div class="flq-account-navbar">
+  <nav>
+    <ul class="nav nav-dots flex-column gy-3">
+      {% for file, item in navigation_user %}
+      <li class="nav-item{{ ' active' if isActiveMenuItem(file, item, filename) }}">
+        <a href="{{ file | safe }}" class="nav-link">
+          <span class="nav-link-name">{{ item.name }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</div>
+{% endblock %}

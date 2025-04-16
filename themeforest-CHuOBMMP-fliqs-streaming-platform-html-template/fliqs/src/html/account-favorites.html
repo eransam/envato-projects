@@ -1,0 +1,66 @@
+{% set page_title = 'Account Favorites' %}
+{% set page_sidebar = true %}
+{% set page_sidebar_account = true %}
+{% set page_sidebar_order = '5' %}
+{% set container_class = ' pt-5 pb-7' %}
+
+
+{% extends 'layouts/layout.html' %}
+
+{% block content_with_sidebar %}
+<div class="row gx-0 gy-3" data-sr="account-favorites" data-sr-delay="300" data-sr-interval="100" data-sr-duration="1000" data-sr-distance="10">
+  <div class="col-12" data-sr-item="account-favorites">
+    <div class="flq-account-favorite">
+      {{ media('movie', tv_shows.show_1.image_xs, tv_shows.show_1.title, [[tv_shows.show_1.rating], [tv_shows.show_1.year], [tv_shows.show_1.duration]], tv_shows.show_1.link) }}
+
+      <a href="#" class="btn btn-dark btn-xs btn-square btn-icon-sm align-self-center active" data-bs-toggle="button">
+        <span class="btn-icon">
+          {{ icon('heart') }}
+          {{ icon('heart-fill') }}
+        </span>
+      </a>
+    </div>
+  </div>
+  <div class="col-12" data-sr-item="account-favorites">
+    <div class="flq-account-favorite">
+      {{ media('movie', movies.movie_1.image_xs, movies.movie_1.title, [[movies.movie_1.rating], [movies.movie_1.year], [movies.movie_1.duration]], movies.movie_1.link) }}
+
+      <a href="#" class="btn btn-dark btn-xs btn-square btn-icon-sm align-self-center active" data-bs-toggle="button">
+        <span class="btn-icon">
+          {{ icon('heart') }}
+          {{ icon('heart-fill') }}
+        </span>
+      </a>
+    </div>
+  </div>
+  <div class="col-12" data-sr-item="account-favorites">
+    <div class="flq-account-favorite">
+      {{ media('movie', actor.image_avatar, actor.name, [[movies.movie_1.title, movies.movie_1.link], [tv_shows.show_1.title, tv_shows.show_1.link]], actor.link) }}
+
+      <a href="#" class="btn btn-dark btn-xs btn-square btn-icon-sm align-self-center active" data-bs-toggle="button">
+        <span class="btn-icon">
+          {{ icon('heart') }}
+          {{ icon('heart-fill') }}
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block sidebar %}
+<div class="flq-account-navbar">
+  <nav>
+    <ul class="nav nav-dots flex-column gy-3">
+      {% for file, item in navigation_user %}
+      <li class="nav-item{{ ' active' if isActiveMenuItem(file, item, filename) }}">
+        <a href="{{ file | safe }}" class="nav-link">
+          <span class="nav-link-name">{{ item.name }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</div>
+{% endblock %}

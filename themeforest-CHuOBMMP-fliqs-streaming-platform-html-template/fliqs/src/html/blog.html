@@ -1,0 +1,74 @@
+{% set page_title = 'Blog' %}
+{% set page_sidebar = true %}
+{% set container_class = ' py-7' %}
+
+{% extends 'layouts/layout.html' %}
+
+{% block header %}
+<div class="flq-background py-7">
+  {% include 'shared/background-ticker.html' %}
+  <div class="flq-background-overlay" style="background-color: hsla(var(--flq-color-black), 0.8);"></div>
+
+  <div class="container text-center" data-sr="banner-text" data-sr-interval="100" data-sr-distance="10" data-sr-duration="1000">
+    <h1 class="display-5 mb-1" data-sr-item="banner-text">{{ page_title }}</h1>
+
+    <nav aria-label="breadcrumb" data-sr-item="banner-text">
+      <ol class="breadcrumb flq-color-opacity">
+        <li class="breadcrumb-item"><a href="demo.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ page_title }}</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+{% endblock %}
+
+{% block content_with_sidebar %}
+<div class="row gx-0 gy-6" data-sr="blog" data-sr-interval="100" data-sr-duration="1000" data-sr-distance="10">
+{% for name in [1, 2, 3] %}
+  <div class="col-12" data-sr-item="blog">
+    {{ card('blog-classic', blog['post_' + name], class_img="flq-responsive flq-responsive-sm-21x9") }}
+  </div>
+{% endfor %}
+
+  <div class="col-12" data-sr-item="blog">
+    <nav>
+      <ul class="pagination">
+        <li class="page-item active">
+          <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link page-link-next" href="#">
+            Next
+            {{ icon('chevron-right', '18', '18') }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+{% endblock %}
+
+{% block sidebar %}
+{% include "shared/widgets-blog.html" %}
+{% endblock %}
+
+{% block content_after %}
+  {% call slider(class="flq-swiper-effect-touch container-fluid mb-3", attr="data-sr data-sr-duration=1500 data-gap=20 data-buttons=true data-autoplay=2000 data-loop=true data-free-mode=true data-speed=1000 data-touch-ratio=0.6 data-breakpoints=320:3,500:4,848:5,1072:6,1280:8,1480:10") %}
+    {% for image in background_ticker[0] %}
+      <div class="swiper-slide">
+        {% call card_image(image, { "icon": "instagram", "width": "24", "height": "24" }, class="flq-card-image-instagram", class_img="flq-responsive flq-responsive-1x1") %}{% endcall %}
+      </div>
+    {% endfor %}
+    {% for image in background_ticker[1] %}
+      <div class="swiper-slide">
+        {% call card_image(image, { "icon": "instagram", "width": "24", "height": "24" }, class="flq-card-image-instagram", class_img="flq-responsive flq-responsive-1x1") %}{% endcall %}
+      </div>
+    {% endfor %}
+  {% endcall %}
+{% endblock %}
